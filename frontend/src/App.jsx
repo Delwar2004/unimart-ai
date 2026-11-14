@@ -5,6 +5,7 @@ import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { ThemeToggle } from './components/common/ThemeToggle';
 import { LanguageToggle } from './components/common/LanguageToggle';
+import { GlobalSearchBar } from './components/common/GlobalSearchBar';
 import { LoginPage } from './pages/auth/LoginPage';
 import { RegisterPage } from './pages/auth/RegisterPage';
 import { VerifyEmailPage } from './pages/auth/VerifyEmailPage';
@@ -78,6 +79,14 @@ function MainApp() {
   const [pendingGiveaways, setPendingGiveaways] = useState(0);
   const [isAssistantOpen, setIsAssistantOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [globalSearchQuery, setGlobalSearchQuery] = useState('');
+
+  const handleGlobalSearch = (query) => {
+    setGlobalSearchQuery(query);
+    if (currentView !== 'browse-products') {
+      handleNavigate('browse-products');
+    }
+  };
 
   const { user, isAuthenticated, logout } = useAuth();
   const { isDark } = useTheme();
@@ -349,6 +358,15 @@ function MainApp() {
             </div>
           </div>
 
+          {/* Quick Global Search Bar (Middle - responsive, disappears gracefully on smaller screens) */}
+          <div className="hidden xl:flex items-center justify-center flex-1 max-w-xs xl:max-w-[280px] 2xl:max-w-md mx-2">
+            <GlobalSearchBar
+              value={globalSearchQuery}
+              onChange={setGlobalSearchQuery}
+              onSearch={handleGlobalSearch}
+            />
+          </div>
+
           {/* Right Controls: Activities, Profile, Language, Theme (Right) */}
           <div className="flex items-center space-x-1 sm:space-x-1.5 shrink-0">
             {isAuthenticated ? (
@@ -478,6 +496,16 @@ function MainApp() {
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden px-4 pt-3 pb-6 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl space-y-3 animate-in fade-in slide-in-from-top-4">
+            <div className="pb-1">
+              <GlobalSearchBar
+                value={globalSearchQuery}
+                onChange={setGlobalSearchQuery}
+                onSearch={(q) => {
+                  setMobileMenuOpen(false);
+                  handleGlobalSearch(q);
+                }}
+              />
+            </div>
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={() => handleNavigate('browse-products')}
@@ -581,7 +609,7 @@ function MainApp() {
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 relative z-10">
         {currentView === 'browse-products' && (
-          <BrowseProducts onNavigate={handleNavigate} />
+          <BrowseProducts onNavigate={handleNavigate} initialSearch={globalSearchQuery} />
         )}
         {currentView === 'wanted-posts' && (
           <WantedPostsPage

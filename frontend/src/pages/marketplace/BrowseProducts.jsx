@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { productService, categoryService, aiService } from '../../services/api';
 import { ProductCard } from '../../components/products/ProductCard';
 import { useAuth } from '../../context/AuthContext';
@@ -18,7 +18,7 @@ import {
   Filter,
 } from 'lucide-react';
 
-export const BrowseProducts = ({ onNavigate }) => {
+export const BrowseProducts = ({ onNavigate, initialSearch = '' }) => {
   const { user, isAuthenticated } = useAuth();
   const { t, isBangla } = useLanguage();
   const [products, setProducts] = useState([]);
@@ -34,7 +34,7 @@ export const BrowseProducts = ({ onNavigate }) => {
   });
 
   // Filter & Search states
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(initialSearch);
   const [filters, setFilters] = useState({
     category: '',
     subCategory: '',
@@ -145,6 +145,17 @@ export const BrowseProducts = ({ onNavigate }) => {
       setLoading(false);
     }
   };
+
+  const isFirstMount = useRef(true);
+  useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+    setSearchTerm(initialSearch);
+    setIsAiFiltered(false);
+    fetchProducts(1, filters, initialSearch);
+  }, [initialSearch]);
 
   useEffect(() => {
     if (!isAiFiltered) {
