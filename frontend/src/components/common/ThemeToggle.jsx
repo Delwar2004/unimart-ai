@@ -11,7 +11,7 @@ export const ThemeToggle = ({ className = '' }) => {
     <button
       onClick={toggleTheme}
       type="button"
-      className={`relative p-2 rounded-xl transition-all duration-200 cursor-pointer border select-none ${
+      className={`relative shrink-0 p-2 rounded-xl transition-all duration-200 cursor-pointer border select-none ${
         isDark
           ? 'bg-slate-800/90 text-amber-400 border-slate-700 hover:bg-slate-700 hover:border-amber-400/30'
           : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200/80 hover:text-indigo-600'

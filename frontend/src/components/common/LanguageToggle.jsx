@@ -7,7 +7,7 @@ export const LanguageToggle = ({ className = '' }) => {
 
   return (
     <div
-      className={`inline-flex items-center p-0.5 rounded-xl border border-slate-200/90 dark:border-slate-700/80 bg-slate-100/90 dark:bg-slate-800/90 select-none text-xs font-semibold ${className}`}
+      className={`inline-flex items-center shrink-0 p-0.5 rounded-xl border border-slate-200/90 dark:border-slate-700/80 bg-slate-100/90 dark:bg-slate-800/90 select-none text-xs font-semibold ${className}`}
       role="group"
       aria-label="Language selection"
     >

@@ -287,17 +287,17 @@ function MainApp() {
         ========================================================================
       */}
       <header className="bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-50 transition-all shadow-xs w-full">
-        <div className="w-full max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-3">
+        <div className="w-full max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6 h-16 xl:h-18 flex items-center justify-between gap-1.5 xl:gap-3">
           {/* Brand Logo (Left) */}
           <div className="flex items-center shrink-0">
             <Logo onClick={() => handleNavigate('browse-products')} />
           </div>
 
           {/* Desktop Primary Nav Items (Center) */}
-          <div className="hidden lg:flex items-center justify-center space-x-2 xl:space-x-2.5">
+          <div className="hidden lg:flex items-center justify-center space-x-1 xl:space-x-2">
             <button
               onClick={() => handleNavigate('browse-products')}
-              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all duration-150 cursor-pointer ${
+              className={`px-3 xl:px-4 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-150 cursor-pointer whitespace-nowrap ${
                 currentView === 'browse-products'
                   ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
                   : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/90 dark:hover:bg-slate-800'
@@ -307,7 +307,7 @@ function MainApp() {
             </button>
             <button
               onClick={() => handleNavigate('wanted-posts')}
-              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all duration-150 cursor-pointer ${
+              className={`px-3 xl:px-4 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-150 cursor-pointer whitespace-nowrap ${
                 currentView === 'wanted-posts' || currentView === 'wanted-post-detail' || currentView === 'wanted-post-form'
                   ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
                   : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/90 dark:hover:bg-slate-800'
@@ -320,14 +320,14 @@ function MainApp() {
               <>
                 <button
                   onClick={() => handleNavigate('create-listing')}
-                  className="px-4 py-2 rounded-xl text-sm font-extrabold bg-gradient-to-r from-indigo-600 via-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white shadow-sm hover:shadow-md hover:shadow-indigo-500/20 active:scale-95 transition-all cursor-pointer whitespace-nowrap inline-flex items-center gap-1.5"
+                  className="px-3 xl:px-4 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-extrabold bg-gradient-to-r from-indigo-600 via-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white shadow-sm hover:shadow-md hover:shadow-indigo-500/20 active:scale-95 transition-all cursor-pointer whitespace-nowrap inline-flex items-center gap-1.5"
                 >
-                  <PlusCircle className="w-4.5 h-4.5" />
+                  <PlusCircle className="w-4 h-4 shrink-0" />
                   <span>{t('sell_give')}</span>
                 </button>
                 <button
                   onClick={() => handleNavigate('my-listings')}
-                  className={`px-3.5 py-2 rounded-xl text-sm font-bold transition cursor-pointer ${
+                  className={`px-2.5 xl:px-3.5 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition cursor-pointer whitespace-nowrap ${
                     currentView === 'my-listings'
                       ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs'
                       : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800'
@@ -337,7 +337,7 @@ function MainApp() {
                 </button>
                 <button
                   onClick={() => handleNavigate('wishlist')}
-                  className={`px-3.5 py-2 rounded-xl text-sm font-bold transition cursor-pointer ${
+                  className={`px-2.5 xl:px-3.5 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition cursor-pointer whitespace-nowrap ${
                     currentView === 'wishlist'
                       ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs'
                       : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800'
@@ -350,10 +350,10 @@ function MainApp() {
           </div>
 
           {/* Right Controls: Activities, Profile, Language, Theme (Right) */}
-          <div className="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+          <div className="flex items-center space-x-1 sm:space-x-1.5 shrink-0">
             {isAuthenticated ? (
               <>
-                <div className="hidden md:flex items-center space-x-1 border-r border-slate-200/80 dark:border-slate-800 pr-2 mr-1">
+                <div className="hidden md:flex items-center space-x-0.5 xl:space-x-1 border-r border-slate-200/80 dark:border-slate-800 pr-1.5 xl:pr-2 mr-0.5 xl:mr-1 shrink-0">
                   <PendingNavButton
                     label={t('requests')}
                     icon={ShoppingBag}
@@ -404,52 +404,53 @@ function MainApp() {
                 {user?.role === 'admin' && (
                   <button
                     onClick={() => handleNavigate('admin-moderation')}
-                    className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer inline-flex items-center gap-1.5 ${
+                    className={`px-2 xl:px-2.5 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer inline-flex items-center gap-1.5 shrink-0 ${
                       currentView === 'admin-moderation'
                         ? 'bg-rose-100 text-rose-800 border border-rose-200'
                         : 'bg-rose-50 text-rose-700 hover:bg-rose-100'
                     }`}
                     title="Admin Moderation Portal"
                   >
-                    <ShieldAlert className="w-3.5 h-3.5" />
-                    <span className="hidden xl:inline">{t('admin_moderation')}</span>
+                    <ShieldAlert className="w-3.5 h-3.5 shrink-0" />
+                    <span className="hidden 2xl:inline">{t('admin_moderation')}</span>
                   </button>
                 )}
 
                 {/* Profile */}
                 <button
                   onClick={() => handleNavigate('profile')}
-                  className="flex items-center space-x-2 px-3.5 py-1.5 rounded-xl text-sm font-bold bg-indigo-50 dark:bg-slate-800 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-slate-700 transition cursor-pointer border border-indigo-200/60 dark:border-slate-700"
+                  className="flex items-center space-x-1.5 px-2.5 xl:px-3 py-1.5 rounded-xl text-xs xl:text-sm font-bold bg-indigo-50 dark:bg-slate-800 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-slate-700 transition cursor-pointer border border-indigo-200/60 dark:border-slate-700 shrink-0"
+                  title={`Profile: ${user?.name || 'User'}`}
                 >
                   {navAvatarSrc ? (
-                    <img src={navAvatarSrc} alt="Avatar" className="w-6.5 h-6.5 rounded-full object-cover" />
+                    <img src={navAvatarSrc} alt="Avatar" className="w-6 h-6 rounded-full object-cover shrink-0" />
                   ) : (
-                    <span className="w-6.5 h-6.5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-black">
+                    <span className="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-black shrink-0">
                       {user?.name?.charAt(0) || 'U'}
                     </span>
                   )}
-                  <span>{user?.name?.split(' ')[0]}</span>
+                  <span className="hidden sm:inline max-w-[70px] xl:max-w-[100px] truncate">{user?.name?.split(' ')[0]}</span>
                 </button>
 
                 <button
                   onClick={logout}
                   title="Sign Out"
-                  className="p-2 rounded-xl text-slate-500 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition cursor-pointer"
+                  className="p-1.5 xl:p-2 rounded-xl text-slate-500 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition cursor-pointer shrink-0"
                 >
-                  <LogOut className="w-4 h-4" />
+                  <LogOut className="w-4 h-4 shrink-0" />
                 </button>
               </>
             ) : (
-              <div className="flex items-center gap-2 pl-2">
+              <div className="flex items-center gap-1.5 sm:gap-2 pl-1 sm:pl-2 shrink-0">
                 <button
                   onClick={() => handleNavigate('login')}
-                  className="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100/80 dark:hover:bg-slate-800 transition-all cursor-pointer whitespace-nowrap"
+                  className="px-3 xl:px-4 py-1.5 xl:py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100/80 dark:hover:bg-slate-800 transition-all cursor-pointer whitespace-nowrap shrink-0"
                 >
                   {t('sign_in')}
                 </button>
                 <button
                   onClick={() => handleNavigate('register')}
-                  className="px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-violet-600 via-indigo-600 to-indigo-700 hover:from-violet-700 hover:to-indigo-800 text-white shadow-sm hover:shadow-md hover:shadow-indigo-500/20 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
+                  className="px-3 xl:px-4 py-1.5 xl:py-2 rounded-xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-violet-600 via-indigo-600 to-indigo-700 hover:from-violet-700 hover:to-indigo-800 text-white shadow-sm hover:shadow-md hover:shadow-indigo-500/20 active:scale-95 transition-all cursor-pointer whitespace-nowrap shrink-0"
                 >
                   {t('register')}
                 </button>
@@ -457,16 +458,16 @@ function MainApp() {
             )}
 
             {/* Language Switcher */}
-            <LanguageToggle />
+            <LanguageToggle className="shrink-0" />
 
             {/* Dark / Light Mode Switcher */}
-            <ThemeToggle />
+            <ThemeToggle className="shrink-0" />
 
             {/* Mobile Hamburger Toggle */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
+              className="lg:hidden p-2 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer shrink-0"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
