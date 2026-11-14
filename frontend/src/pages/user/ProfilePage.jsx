@@ -31,8 +31,13 @@ export const ProfilePage = ({ onNavigate }) => {
         campusLocation: user.campusLocation || '',
       });
       if (user.avatarUrl) {
-        const baseUrl = import.meta.env.VITE_API_BASE_URL?.replace('/api/v1', '') || 'http://localhost:5000';
-        setAvatarPreview(user.avatarUrl.startsWith('http') ? user.avatarUrl : `${baseUrl}${user.avatarUrl}`);
+        let avatar = user.avatarUrl;
+        if (avatar.startsWith('http://') || avatar.startsWith('https://') || avatar.startsWith('blob:')) {
+          setAvatarPreview(avatar);
+        } else {
+          const prefix = import.meta.env.DEV ? 'http://localhost:5000' : '';
+          setAvatarPreview(`${prefix}${avatar.startsWith('/') ? '' : '/'}${avatar}`);
+        }
       }
     }
   }, [user]);
@@ -98,7 +103,12 @@ export const ProfilePage = ({ onNavigate }) => {
           <div className="relative group">
             <div className="w-24 h-24 rounded-2xl overflow-hidden bg-slate-100 border-2 border-indigo-100 flex items-center justify-center shadow-inner">
               {avatarPreview ? (
-                <img src={avatarPreview} alt="Avatar" className="w-full h-full object-cover" />
+                <img
+                  src={avatarPreview}
+                  alt="Avatar"
+                  className="w-full h-full object-cover"
+                  onError={() => setAvatarPreview('')}
+                />
               ) : (
                 <span className="text-3xl font-extrabold text-indigo-600">
                   {user?.name?.charAt(0) || 'U'}

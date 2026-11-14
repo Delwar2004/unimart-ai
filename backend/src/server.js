@@ -94,8 +94,27 @@ app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true, limit: '2mb' }));
 
 // Safely serve uploaded static files (avatars, product images only; temp uploads are strictly isolated)
-app.use('/uploads/avatars', express.static(path.resolve(process.cwd(), 'uploads/avatars')));
-app.use('/uploads/products', express.static(path.resolve(process.cwd(), 'uploads/products')));
+const avatarDirs = [
+  path.resolve(process.cwd(), 'uploads/avatars'),
+  path.resolve(__dirname, '../uploads/avatars'),
+  path.resolve(__dirname, '../../uploads/avatars'),
+];
+avatarDirs.forEach((dir) => {
+  if (fs.existsSync(dir)) {
+    app.use('/uploads/avatars', express.static(dir));
+  }
+});
+
+const productDirs = [
+  path.resolve(process.cwd(), 'uploads/products'),
+  path.resolve(__dirname, '../uploads/products'),
+  path.resolve(__dirname, '../../uploads/products'),
+];
+productDirs.forEach((dir) => {
+  if (fs.existsSync(dir)) {
+    app.use('/uploads/products', express.static(dir));
+  }
+});
 
 // Verify security-critical environment variables before proceeding
 try {

@@ -263,10 +263,13 @@ function MainApp() {
     }
   }, [currentView, isAuthenticated]);
 
-  const baseUrl = import.meta.env.VITE_API_BASE_URL?.replace('/api/v1', '') || 'http://localhost:5000';
-  const navAvatarSrc = user?.avatarUrl
-    ? (user.avatarUrl.startsWith('http') ? user.avatarUrl : `${baseUrl}${user.avatarUrl}`)
-    : null;
+  const resolveAvatar = (url) => {
+    if (!url) return null;
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('blob:')) return url;
+    const prefix = import.meta.env.DEV ? 'http://localhost:5000' : '';
+    return `${prefix}${url.startsWith('/') ? '' : '/'}${url}`;
+  };
+  const navAvatarSrc = resolveAvatar(user?.avatarUrl);
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans relative selection:bg-indigo-500/20 selection:text-indigo-900 dark:selection:text-indigo-200 transition-colors duration-200">

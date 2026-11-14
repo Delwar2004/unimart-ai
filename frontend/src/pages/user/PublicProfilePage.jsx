@@ -68,10 +68,13 @@ export const PublicProfilePage = ({ onNavigate, userId }) => {
     );
   }
 
-  const baseUrl = import.meta.env.VITE_API_BASE_URL?.replace('/api/v1', '') || 'http://localhost:5000';
-  const avatarSrc = profile.avatarUrl
-    ? (profile.avatarUrl.startsWith('http') ? profile.avatarUrl : `${baseUrl}${profile.avatarUrl}`)
-    : null;
+  const resolveAvatar = (url) => {
+    if (!url) return null;
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('blob:')) return url;
+    const prefix = import.meta.env.DEV ? 'http://localhost:5000' : '';
+    return `${prefix}${url.startsWith('/') ? '' : '/'}${url}`;
+  };
+  const avatarSrc = resolveAvatar(profile.avatarUrl);
 
   return (
     <div className="max-w-2xl w-full mx-auto space-y-6">
