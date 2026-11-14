@@ -48,6 +48,15 @@ export const GlobalSearchBar = ({
     }
   };
 
+  const handleInputKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (onSearch) {
+        onSearch(query.trim());
+      }
+    }
+  };
+
   const handleClear = () => {
     setQuery('');
     if (onChange) onChange('');
@@ -81,6 +90,7 @@ export const GlobalSearchBar = ({
           type="text"
           value={query}
           onChange={handleChange}
+          onKeyDown={handleInputKeyDown}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={

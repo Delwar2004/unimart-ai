@@ -80,9 +80,11 @@ function MainApp() {
   const [isAssistantOpen, setIsAssistantOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [globalSearchQuery, setGlobalSearchQuery] = useState('');
+  const [globalSearchTrigger, setGlobalSearchTrigger] = useState(0);
 
   const handleGlobalSearch = (query) => {
     setGlobalSearchQuery(query);
+    setGlobalSearchTrigger((prev) => prev + 1);
     if (currentView !== 'browse-products') {
       handleNavigate('browse-products');
     }
@@ -609,7 +611,11 @@ function MainApp() {
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 relative z-10">
         {currentView === 'browse-products' && (
-          <BrowseProducts onNavigate={handleNavigate} initialSearch={globalSearchQuery} />
+          <BrowseProducts
+            onNavigate={handleNavigate}
+            initialSearch={globalSearchQuery}
+            searchTrigger={globalSearchTrigger}
+          />
         )}
         {currentView === 'wanted-posts' && (
           <WantedPostsPage

@@ -18,7 +18,7 @@ import {
   Filter,
 } from 'lucide-react';
 
-export const BrowseProducts = ({ onNavigate, initialSearch = '' }) => {
+export const BrowseProducts = ({ onNavigate, initialSearch = '', searchTrigger = 0 }) => {
   const { user, isAuthenticated } = useAuth();
   const { t, isBangla } = useLanguage();
   const [products, setProducts] = useState([]);
@@ -150,12 +150,27 @@ export const BrowseProducts = ({ onNavigate, initialSearch = '' }) => {
   useEffect(() => {
     if (isFirstMount.current) {
       isFirstMount.current = false;
+      if (initialSearch) {
+        setSearchTerm(initialSearch);
+        setIsAiFiltered(false);
+        fetchProducts(1, filters, initialSearch);
+      }
       return;
     }
     setSearchTerm(initialSearch);
     setIsAiFiltered(false);
     fetchProducts(1, filters, initialSearch);
-  }, [initialSearch]);
+
+    // Smooth scroll down to results section when user executes a search
+    if (initialSearch && initialSearch.trim()) {
+      setTimeout(() => {
+        const resultsEl = document.getElementById('marketplace-products-section');
+        if (resultsEl) {
+          resultsEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [searchTrigger, initialSearch]);
 
   useEffect(() => {
     if (!isAiFiltered) {
@@ -261,8 +276,8 @@ export const BrowseProducts = ({ onNavigate, initialSearch = '' }) => {
 
   return (
     <div className="w-full max-w-7xl mx-auto space-y-8">
-      {/* Personalized Recommendations Shelf */}
-      {isAuthenticated && recommendations.length > 0 && (
+      {/* Personalized Recommendations Shelf (only shown when not actively searching) */}
+      {isAuthenticated && recommendations.length > 0 && !searchTerm.trim() && (
         <div className="bg-gradient-to-r from-indigo-50/90 via-purple-50/60 to-white dark:from-slate-900/90 dark:via-indigo-950/40 dark:to-slate-900/90 rounded-3xl border border-indigo-100/90 dark:border-indigo-900/50 p-6 sm:p-8 shadow-sm space-y-5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex items-center space-x-3">
@@ -674,7 +689,7 @@ export const BrowseProducts = ({ onNavigate, initialSearch = '' }) => {
       </div>
 
       {/* Results Count Header */}
-      <div className="flex items-center justify-between px-1">
+      <div id="marketplace-products-section" className="flex items-center justify-between px-1 scroll-mt-24">
         <span className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400">
           {products.length} {t('results_found')} ({pagination.totalItems} total)
           {isAiFiltered && (

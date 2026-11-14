@@ -208,12 +208,22 @@ export const getProducts = async (req, res, next) => {
       query.status = PRODUCT_STATUS.AVAILABLE;
     }
 
-    // 3. Keyword Search (Unified: checks query param `q` or `search`)
+    // 3. Keyword Search (Unified: checks query param `q` or `search` with resilient regex)
     const searchTerm = (q || search || '').trim();
     let isTextSearch = false;
     if (searchTerm) {
-      query.$text = { $search: searchTerm };
-      isTextSearch = true;
+      const escaped = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      // If query ends with 's' and length > 3, match both singular and plural (e.g. books -> book | books)
+      const pattern = (escaped.length > 3 && escaped.toLowerCase().endsWith('s'))
+        ? `(${escaped}|${escaped.slice(0, -1)})`
+        : escaped;
+
+      query.$or = [
+        { title: { $regex: new RegExp(pattern, 'i') } },
+        { description: { $regex: new RegExp(pattern, 'i') } },
+        { tags: { $regex: new RegExp(pattern, 'i') } },
+        { exchangePreferences: { $regex: new RegExp(pattern, 'i') } },
+      ];
     }
 
     // 4. Category and Subcategory Filter
