@@ -91,7 +91,7 @@ export const GlobalSearchBar = ({
           className="w-full bg-transparent text-xs xl:text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 outline-none border-none p-0 font-medium"
         />
 
-        {query ? (
+        {query && (
           <button
             type="button"
             onClick={handleClear}
@@ -100,13 +100,6 @@ export const GlobalSearchBar = ({
           >
             <X className="w-3.5 h-3.5" />
           </button>
-        ) : (
-          <kbd
-            className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-mono font-medium text-slate-400 dark:text-slate-500 bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-2xs select-none shrink-0"
-            title="Press Ctrl + K to search"
-          >
-            Ctrl K
-          </kbd>
         )}
       </div>
     </form>
