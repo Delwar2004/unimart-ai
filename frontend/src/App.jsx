@@ -287,66 +287,66 @@ function MainApp() {
         ========================================================================
       */}
       <header className="bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-50 transition-all shadow-xs w-full">
-        <div className="w-full max-w-[1720px] mx-auto px-2 sm:px-4 lg:px-6 h-16 xl:h-18 flex items-center justify-between gap-1.5 xl:gap-3">
-          {/* Brand Logo (Left) */}
-          <div className="flex items-center shrink-0">
+        <div className="w-full px-3 sm:px-5 lg:px-6 h-16 xl:h-18 flex items-center justify-between gap-2 xl:gap-4">
+          {/* Brand Logo and Primary Nav (Left) */}
+          <div className="flex items-center space-x-2 xl:space-x-4 shrink-0">
             <Logo onClick={() => handleNavigate('browse-products')} />
-          </div>
 
-          {/* Desktop Primary Nav Items (Center) */}
-          <div className="hidden lg:flex items-center justify-center space-x-1 xl:space-x-2">
-            <button
-              onClick={() => handleNavigate('browse-products')}
-              className={`px-3 xl:px-4 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-150 cursor-pointer whitespace-nowrap ${
-                currentView === 'browse-products'
-                  ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
-                  : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/90 dark:hover:bg-slate-800'
-              }`}
-            >
-              {t('browse_items')}
-            </button>
-            <button
-              onClick={() => handleNavigate('wanted-posts')}
-              className={`px-3 xl:px-4 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-150 cursor-pointer whitespace-nowrap ${
-                currentView === 'wanted-posts' || currentView === 'wanted-post-detail' || currentView === 'wanted-post-form'
-                  ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
-                  : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/90 dark:hover:bg-slate-800'
-              }`}
-            >
-              {t('wanted_items')}
-            </button>
+            {/* Desktop Primary Nav Items */}
+            <div className="hidden lg:flex items-center space-x-1 xl:space-x-1.5">
+              <button
+                onClick={() => handleNavigate('browse-products')}
+                className={`px-3 xl:px-3.5 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-150 cursor-pointer whitespace-nowrap ${
+                  currentView === 'browse-products'
+                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
+                    : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/90 dark:hover:bg-slate-800'
+                }`}
+              >
+                {t('browse_items')}
+              </button>
+              <button
+                onClick={() => handleNavigate('wanted-posts')}
+                className={`px-3 xl:px-3.5 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition-all duration-150 cursor-pointer whitespace-nowrap ${
+                  currentView === 'wanted-posts' || currentView === 'wanted-post-detail' || currentView === 'wanted-post-form'
+                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
+                    : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/90 dark:hover:bg-slate-800'
+                }`}
+              >
+                {t('wanted_items')}
+              </button>
 
-            {isAuthenticated && (
-              <>
-                <button
-                  onClick={() => handleNavigate('create-listing')}
-                  className="px-3 xl:px-4 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-extrabold bg-gradient-to-r from-indigo-600 via-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white shadow-sm hover:shadow-md hover:shadow-indigo-500/20 active:scale-95 transition-all cursor-pointer whitespace-nowrap inline-flex items-center gap-1.5"
-                >
-                  <PlusCircle className="w-4 h-4 shrink-0" />
-                  <span>{t('sell_give')}</span>
-                </button>
-                <button
-                  onClick={() => handleNavigate('my-listings')}
-                  className={`px-2.5 xl:px-3.5 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition cursor-pointer whitespace-nowrap ${
-                    currentView === 'my-listings'
-                      ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs'
-                      : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800'
-                  }`}
-                >
-                  {t('my_listings')}
-                </button>
-                <button
-                  onClick={() => handleNavigate('wishlist')}
-                  className={`px-2.5 xl:px-3.5 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition cursor-pointer whitespace-nowrap ${
-                    currentView === 'wishlist'
-                      ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs'
-                      : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800'
-                  }`}
-                >
-                  {t('wishlist')}
-                </button>
-              </>
-            )}
+              {isAuthenticated && (
+                <>
+                  <button
+                    onClick={() => handleNavigate('create-listing')}
+                    className="px-3 xl:px-3.5 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-extrabold bg-gradient-to-r from-indigo-600 via-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white shadow-sm hover:shadow-md hover:shadow-indigo-500/20 active:scale-95 transition-all cursor-pointer whitespace-nowrap inline-flex items-center gap-1.5"
+                  >
+                    <PlusCircle className="w-4 h-4 shrink-0" />
+                    <span>{t('sell_give')}</span>
+                  </button>
+                  <button
+                    onClick={() => handleNavigate('my-listings')}
+                    className={`px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition cursor-pointer whitespace-nowrap ${
+                      currentView === 'my-listings'
+                        ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs'
+                        : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    {t('my_listings')}
+                  </button>
+                  <button
+                    onClick={() => handleNavigate('wishlist')}
+                    className={`px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold transition cursor-pointer whitespace-nowrap ${
+                      currentView === 'wishlist'
+                        ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs'
+                        : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    {t('wishlist')}
+                  </button>
+                </>
+              )}
+            </div>
           </div>
 
           {/* Right Controls: Activities, Profile, Language, Theme (Right) */}
