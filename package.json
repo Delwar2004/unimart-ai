@@ -1,0 +1,17 @@
+{
+  "name": "unimart-ai",
+  "version": "1.0.0",
+  "description": "UniMart AI - University Marketplace",
+  "scripts": {
+    "install:backend": "npm --prefix backend install",
+    "install:frontend": "npm --prefix frontend install",
+    "install:all": "npm run install:backend && npm run install:frontend",
+    "build:frontend": "npm --prefix frontend run build",
+    "build": "npm run install:backend && npm run install:frontend && npm run build:frontend",
+    "start": "node backend/src/server.js",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "seed": "npm --prefix backend run seed"
+  }
+}
+

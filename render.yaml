@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: unimart-ai
+    env: node
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_URL
+        value: "*"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: UNIVERSITY_EMAIL_DOMAINS
+        value: bup.edu.bd
+      - key: AI_PROVIDER
+        value: mock
+      - key: MONGODB_URI
+        sync: false
+
