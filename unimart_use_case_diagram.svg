@@ -1,0 +1,269 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" height="100%" style="background:#F8FAFC; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;">
+  <defs>
+    <!-- Soft Shadows -->
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.06"/>
+    </filter>
+    <filter id="actorShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#4338CA" flood-opacity="0.12"/>
+    </filter>
+    
+    <!-- Gradients -->
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4338CA"/>
+      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="ucGradAuth" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#EEF2FF"/>
+    </linearGradient>
+    <linearGradient id="ucGradCommerce" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5F3FF"/>
+    </linearGradient>
+    <linearGradient id="ucGradAI" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#ECFDF5"/>
+    </linearGradient>
+    <linearGradient id="ucGradAdmin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FFF1F2"/>
+    </linearGradient>
+    
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#64748B"/>
+    </marker>
+    <marker id="arrowIndigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#4338CA"/>
+    </marker>
+    <marker id="arrowDashed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <!-- Top Title Banner -->
+  <rect x="0" y="0" width="1200" height="70" fill="url(#headerGrad)"/>
+  <text x="40" y="38" fill="#FFFFFF" font-size="22" font-weight="800" letter-spacing="-0.02em">UniMart AI — UML Use Case Diagram</text>
+  <text x="40" y="58" fill="#E0E7FF" font-size="12" font-weight="500">Department of Information &amp; Communication Technology (ICT) • Bangladesh University of Professionals (BUP)</text>
+  <text x="1160" y="44" fill="#FFFFFF" font-size="12" font-weight="700" text-anchor="end">Software Engineering Capstone</text>
+
+  <!-- System Boundary Container -->
+  <rect x="220" y="90" width="760" height="780" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#cardShadow)"/>
+  
+  <!-- System Boundary Header Tag -->
+  <rect x="240" y="105" width="280" height="28" rx="6" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+  <text x="250" y="124" fill="#4338CA" font-size="13" font-weight="800" letter-spacing="0.05em">SYSTEM: UniMart AI Campus Platform</text>
+
+  <!-- ==================== ACTOR 1: VERIFIED BUP STUDENT (Left) ==================== -->
+  <g transform="translate(100, 380)">
+    <!-- Stick Figure -->
+    <circle cx="0" cy="-45" r="18" fill="#EEF2FF" stroke="#4338CA" stroke-width="2.5" filter="url(#actorShadow)"/>
+    <circle cx="0" cy="-48" r="8" fill="#4338CA"/>
+    <!-- Body -->
+    <line x1="0" y1="-27" x2="0" y2="25" stroke="#4338CA" stroke-width="3" stroke-linecap="round"/>
+    <!-- Arms -->
+    <line x1="-28" y1="-8" x2="28" y2="-8" stroke="#4338CA" stroke-width="3" stroke-linecap="round"/>
+    <!-- Legs -->
+    <line x1="0" y1="25" x2="-22" y2="65" stroke="#4338CA" stroke-width="3" stroke-linecap="round"/>
+    <line x1="0" y1="25" x2="22" y2="65" stroke="#4338CA" stroke-width="3" stroke-linecap="round"/>
+    <!-- Actor Label -->
+    <text x="0" y="95" fill="#0F172A" font-size="15" font-weight="800" text-anchor="middle">&lt;&lt;Primary Actor&gt;&gt;</text>
+    <text x="0" y="115" fill="#4338CA" font-size="14" font-weight="700" text-anchor="middle">Verified Student</text>
+    <text x="0" y="132" fill="#64748B" font-size="11" font-weight="500" text-anchor="middle">(@bup.edu.bd)</text>
+  </g>
+
+  <!-- ==================== ACTOR 2: PLATFORM ADMIN (Right) ==================== -->
+  <g transform="translate(1090, 480)">
+    <circle cx="0" cy="-45" r="18" fill="#FFF1F2" stroke="#E11D48" stroke-width="2.5" filter="url(#actorShadow)"/>
+    <polygon points="-6,-52 6,-52 0,-40" fill="#E11D48"/>
+    <line x1="0" y1="-27" x2="0" y2="25" stroke="#E11D48" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-28" y1="-8" x2="28" y2="-8" stroke="#E11D48" stroke-width="3" stroke-linecap="round"/>
+    <line x1="0" y1="25" x2="-22" y2="65" stroke="#E11D48" stroke-width="3" stroke-linecap="round"/>
+    <line x1="0" y1="25" x2="22" y2="65" stroke="#E11D48" stroke-width="3" stroke-linecap="round"/>
+    <text x="0" y="95" fill="#0F172A" font-size="15" font-weight="800" text-anchor="middle">&lt;&lt;Administrator&gt;&gt;</text>
+    <text x="0" y="115" fill="#E11D48" font-size="14" font-weight="700" text-anchor="middle">Platform Moderator</text>
+    <text x="0" y="132" fill="#64748B" font-size="11" font-weight="500" text-anchor="middle">(Admin Portal)</text>
+  </g>
+
+  <!-- ==================== ACTOR 3: GEMINI AI SERVICE (Top Right External) ==================== -->
+  <g transform="translate(1090, 200)">
+    <rect x="-65" y="-35" width="130" height="70" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="2" filter="url(#actorShadow)"/>
+    <text x="0" y="-12" fill="#065F46" font-size="11" font-weight="700" text-anchor="middle">&lt;&lt;External System&gt;&gt;</text>
+    <text x="0" y="8" fill="#059669" font-size="13" font-weight="800" text-anchor="middle">Google Gemini</text>
+    <text x="0" y="24" fill="#059669" font-size="12" font-weight="700" text-anchor="middle">&amp; NLP Engine</text>
+  </g>
+
+  <!-- ==================== ACTOR 4: INSTITUTIONAL EMAIL / SMTP (Bottom Left External) ==================== -->
+  <g transform="translate(100, 750)">
+    <rect x="-65" y="-30" width="130" height="60" rx="10" fill="#F8FAFC" stroke="#64748B" stroke-width="1.8" filter="url(#actorShadow)"/>
+    <text x="0" y="-8" fill="#475569" font-size="10.5" font-weight="700" text-anchor="middle">&lt;&lt;Supporting Service&gt;&gt;</text>
+    <text x="0" y="10" fill="#0F172A" font-size="12" font-weight="800" text-anchor="middle">BUP Mail Server</text>
+    <text x="0" y="24" fill="#64748B" font-size="10" font-weight="500" text-anchor="middle">(SMTP Auth Token)</text>
+  </g>
+
+  <!-- ====================================================================== -->
+  <!--                     USE CASES (OVALS INSIDE BOUNDARY)                  -->
+  <!-- ====================================================================== -->
+
+  <!-- UC 1: Register & Authenticate with University Email -->
+  <g id="uc-auth" transform="translate(370, 165)">
+    <ellipse cx="0" cy="0" rx="115" ry="24" fill="url(#ucGradAuth)" stroke="#4338CA" stroke-width="1.8"/>
+    <text x="0" y="4" fill="#1E1B4B" font-size="12" font-weight="700" text-anchor="middle">UC-01: Register &amp; Login (JWT)</text>
+  </g>
+
+  <!-- UC 2: Manage Profile & Meetup Spot -->
+  <g id="uc-profile" transform="translate(370, 230)">
+    <ellipse cx="0" cy="0" rx="115" ry="24" fill="url(#ucGradAuth)" stroke="#4338CA" stroke-width="1.8"/>
+    <text x="0" y="4" fill="#1E1B4B" font-size="11.5" font-weight="700" text-anchor="middle">UC-02: Manage Student Profile</text>
+  </g>
+
+  <!-- UC 3: Instant Global Search & Browse -->
+  <g id="uc-search" transform="translate(370, 305)">
+    <ellipse cx="0" cy="0" rx="120" ry="26" fill="url(#ucGradCommerce)" stroke="#6366F1" stroke-width="1.8"/>
+    <text x="0" y="-3" fill="#312E81" font-size="12" font-weight="700" text-anchor="middle">UC-03: Browse &amp; Global Search</text>
+    <text x="0" y="13" fill="#6366F1" font-size="10" font-weight="600" text-anchor="middle">(Typo-Tolerant, Ctrl+K)</text>
+  </g>
+
+  <!-- UC 4: 4 Commerce Modes (Sub-divided) -->
+  <g id="uc-sell" transform="translate(370, 390)">
+    <ellipse cx="0" cy="0" rx="125" ry="26" fill="url(#ucGradCommerce)" stroke="#6366F1" stroke-width="1.8"/>
+    <text x="0" y="-3" fill="#312E81" font-size="12" font-weight="700" text-anchor="middle">UC-04: Post Listing &amp; Make Offer</text>
+    <text x="0" y="13" fill="#6366F1" font-size="10" font-weight="600" text-anchor="middle">(Mode 1: Direct Sale Bargain)</text>
+  </g>
+
+  <g id="uc-exchange" transform="translate(370, 475)">
+    <ellipse cx="0" cy="0" rx="125" ry="26" fill="url(#ucGradCommerce)" stroke="#6366F1" stroke-width="1.8"/>
+    <text x="0" y="-3" fill="#312E81" font-size="12" font-weight="700" text-anchor="middle">UC-05: Propose Barter Exchange</text>
+    <text x="0" y="13" fill="#6366F1" font-size="10" font-weight="600" text-anchor="middle">(Mode 2: Cashless Item Swap)</text>
+  </g>
+
+  <g id="uc-giveaway" transform="translate(370, 560)">
+    <ellipse cx="0" cy="0" rx="125" ry="26" fill="url(#ucGradCommerce)" stroke="#059669" stroke-width="1.8"/>
+    <text x="0" y="-3" fill="#065F46" font-size="12" font-weight="700" text-anchor="middle">UC-06: Claim 0 BDT Giveaway</text>
+    <text x="0" y="13" fill="#059669" font-size="10" font-weight="600" text-anchor="middle">(Mode 3: Senior Notes/Donations)</text>
+  </g>
+
+  <g id="uc-wanted" transform="translate(370, 645)">
+    <ellipse cx="0" cy="0" rx="125" ry="26" fill="url(#ucGradCommerce)" stroke="#D97706" stroke-width="1.8"/>
+    <text x="0" y="-3" fill="#92400E" font-size="12" font-weight="700" text-anchor="middle">UC-07: Create Wanted Request</text>
+    <text x="0" y="13" fill="#D97706" font-size="10" font-weight="600" text-anchor="middle">(Mode 4: Crowd Demands)</text>
+  </g>
+
+  <!-- UC 8: Real-Time In-App Chat -->
+  <g id="uc-chat" transform="translate(370, 730)">
+    <ellipse cx="0" cy="0" rx="120" ry="24" fill="url(#ucGradAuth)" stroke="#4338CA" stroke-width="1.8"/>
+    <text x="0" y="4" fill="#1E1B4B" font-size="12" font-weight="700" text-anchor="middle">UC-08: Peer-to-Peer Messaging</text>
+  </g>
+
+  <!-- UC 9: 2-Step Campus Handover Confirmation (CRITICAL) -->
+  <g id="uc-handover" transform="translate(720, 480)">
+    <ellipse cx="0" cy="0" rx="145" ry="32" fill="#FEF3C7" stroke="#D97706" stroke-width="2.2" filter="url(#cardShadow)"/>
+    <text x="0" y="-6" fill="#78350F" font-size="12.5" font-weight="800" text-anchor="middle">UC-09: 2-Step Handover Protocol</text>
+    <text x="0" y="12" fill="#B45309" font-size="10.5" font-weight="700" text-anchor="middle">(Mandatory Bilateral Physical Confirm)</text>
+  </g>
+
+  <!-- UC 10: Consult AI Assistant (Top Right inside Boundary) -->
+  <g id="uc-ai" transform="translate(720, 230)">
+    <ellipse cx="0" cy="0" rx="135" ry="30" fill="url(#ucGradAI)" stroke="#059669" stroke-width="2"/>
+    <text x="0" y="-6" fill="#065F46" font-size="12.5" font-weight="800" text-anchor="middle">UC-10: Consult Campus AI Assistant</text>
+    <text x="0" y="11" fill="#047857" font-size="10" font-weight="600" text-anchor="middle">(Trilingual NLP: EN / BN / Banglish)</text>
+  </g>
+
+  <!-- UC 11: Auto Out-of-Stock Diversion (EXTENDS AI Assistant) -->
+  <g id="uc-diversion" transform="translate(720, 340)">
+    <ellipse cx="0" cy="0" rx="135" ry="26" fill="#F0FDF4" stroke="#10B981" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="0" y="-3" fill="#065F46" font-size="11" font-weight="700" text-anchor="middle">UC-11: Out-of-Stock Polite Diversion</text>
+    <text x="0" y="12" fill="#059669" font-size="9.5" font-weight="600" text-anchor="middle">(1-Click Route to Wanted Post)</text>
+  </g>
+
+  <!-- UC 12: Report Listing / User -->
+  <g id="uc-report" transform="translate(720, 620)">
+    <ellipse cx="0" cy="0" rx="120" ry="24" fill="url(#ucGradAdmin)" stroke="#E11D48" stroke-width="1.8"/>
+    <text x="0" y="4" fill="#881337" font-size="12" font-weight="700" text-anchor="middle">UC-12: Report Inappropriate Content</text>
+  </g>
+
+  <!-- UC 13: Admin Moderate Listings & Accounts -->
+  <g id="uc-moderate" transform="translate(720, 710)">
+    <ellipse cx="0" cy="0" rx="130" ry="26" fill="url(#ucGradAdmin)" stroke="#E11D48" stroke-width="2"/>
+    <text x="0" y="-3" fill="#881337" font-size="12" font-weight="800" text-anchor="middle">UC-13: Moderate Reports &amp; Ban Users</text>
+    <text x="0" y="12" fill="#BE123C" font-size="10" font-weight="600" text-anchor="middle">(Review 447 Reports, Inspect Content)</text>
+  </g>
+
+  <!-- UC 14: Monitor Analytics & Health -->
+  <g id="uc-analytics" transform="translate(720, 800)">
+    <ellipse cx="0" cy="0" rx="130" ry="26" fill="url(#ucGradAdmin)" stroke="#E11D48" stroke-width="1.8"/>
+    <text x="0" y="-3" fill="#881337" font-size="12" font-weight="700" text-anchor="middle">UC-14: Monitor Platform Analytics</text>
+    <text x="0" y="12" fill="#BE123C" font-size="10" font-weight="600" text-anchor="middle">(GMV Volume, Deal Velocity, Audits)</text>
+  </g>
+
+
+  <!-- ====================================================================== -->
+  <!--                     RELATIONSHIPS & ASSOCIATIONS LINES                 -->
+  <!-- ====================================================================== -->
+
+  <!-- Student Associations (Solid Lines) -->
+  <path d="M 130 380 L 255 165" stroke="#4338CA" stroke-width="1.8"/>
+  <path d="M 130 380 L 255 230" stroke="#4338CA" stroke-width="1.8"/>
+  <path d="M 130 390 L 250 305" stroke="#4338CA" stroke-width="1.8"/>
+  <path d="M 130 400 L 245 390" stroke="#4338CA" stroke-width="1.8"/>
+  <path d="M 130 410 L 245 475" stroke="#4338CA" stroke-width="1.8"/>
+  <path d="M 130 420 L 245 560" stroke="#4338CA" stroke-width="1.8"/>
+  <path d="M 130 430 L 245 645" stroke="#4338CA" stroke-width="1.8"/>
+  <path d="M 130 440 L 250 730" stroke="#4338CA" stroke-width="1.8"/>
+  <!-- Student to Handover & Report -->
+  <path d="M 130 420 Q 300 480 575 480" stroke="#D97706" stroke-width="2" stroke-dasharray="6,4"/>
+  <path d="M 130 450 Q 280 620 600 620" stroke="#64748B" stroke-width="1.5"/>
+  <path d="M 130 370 Q 350 240 585 230" stroke="#059669" stroke-width="1.8"/>
+
+  <!-- Admin Associations (Solid Pink/Red Lines) -->
+  <path d="M 1060 480 L 840 620" stroke="#E11D48" stroke-width="1.8"/>
+  <path d="M 1060 500 L 850 710" stroke="#E11D48" stroke-width="2"/>
+  <path d="M 1060 520 L 850 800" stroke="#E11D48" stroke-width="1.8"/>
+
+  <!-- External Gemini AI to UC-10 (Solid Green) -->
+  <path d="M 1025 200 L 855 230" stroke="#059669" stroke-width="2" marker-start="url(#arrowIndigo)"/>
+
+  <!-- Institutional Mail to UC-01 -->
+  <path d="M 100 720 Q 80 165 255 165" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- ====================================================================== -->
+  <!--             STEREOTYPES: <<include>> & <<extend>> RELATIONSHIPS        -->
+  <!-- ====================================================================== -->
+
+  <!-- UC-04, UC-05, UC-06 -> <<include>> UC-09 Handover -->
+  <path d="M 495 390 Q 600 430 630 460" stroke="#64748B" stroke-width="1.4" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+  <text x="565" y="418" fill="#64748B" font-size="10" font-weight="700" transform="rotate(20, 565, 418)">&lt;&lt;include&gt;&gt;</text>
+
+  <path d="M 495 475 L 575 480" stroke="#64748B" stroke-width="1.4" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+  <text x="535" y="472" fill="#64748B" font-size="10" font-weight="700">&lt;&lt;include&gt;&gt;</text>
+
+  <!-- UC-10 AI -> <<extend>> UC-11 Polite Diversion -->
+  <path d="M 720 260 L 720 314" stroke="#059669" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+  <text x="726" y="292" fill="#059669" font-size="10" font-weight="700">&lt;&lt;extend&gt;&gt;</text>
+
+  <!-- UC-11 Polite Diversion -> <<include>> UC-07 Create Wanted Request -->
+  <path d="M 680 366 Q 580 500 480 625" stroke="#D97706" stroke-width="1.4" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+  <text x="570" y="520" fill="#D97706" font-size="10" font-weight="700" transform="rotate(52, 570, 520)">&lt;&lt;include&gt;&gt;</text>
+
+  <!-- UC-13 Moderate -> <<extend>> UC-12 Report -->
+  <path d="M 720 684 L 720 644" stroke="#E11D48" stroke-width="1.4" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+  <text x="726" y="668" fill="#E11D48" font-size="10" font-weight="700">&lt;&lt;extend&gt;&gt;</text>
+
+  <!-- ==================== LEGEND BOX (Bottom Left) ==================== -->
+  <g transform="translate(240, 770)">
+    <rect x="0" y="0" width="310" height="85" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+    <text x="12" y="18" fill="#0F172A" font-size="11" font-weight="800">UML DIAGRAM CONVENTIONS</text>
+    
+    <line x1="12" y1="34" x2="45" y2="34" stroke="#4338CA" stroke-width="2"/>
+    <text x="52" y="38" fill="#475569" font-size="10" font-weight="600">Actor Association</text>
+
+    <line x1="12" y1="52" x2="45" y2="52" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="52" y="56" fill="#64748B" font-size="10" font-weight="600">&lt;&lt;include&gt;&gt; Mandatory dependency</text>
+
+    <line x1="12" y1="70" x2="45" y2="70" stroke="#059669" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="52" y="74" fill="#059669" font-size="10" font-weight="600">&lt;&lt;extend&gt;&gt; Conditional behavior (AI &amp; Reports)</text>
+  </g>
+
+</svg>
