@@ -3,52 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UniMart AI — Project Defense Presentation Slides (BUP)</title>
+  <title>UniMart AI — Project Defense Presentation (Dept. of ICT, BUP)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #0A0F1D;
-      --card-dark: #111827;
-      --primary: #6366F1;
-      --primary-gradient: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #9333EA 100%);
-      --accent: #10B981;
-      --warning: #F59E0B;
-      --text-main: #F8FAFC;
-      --text-muted: #94A3B8;
-      --border: rgba(255, 255, 255, 0.08);
+      --bg-canvas: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --border-subtle: #E2E8F0;
+      --border-accent: #C7D2FE;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-light: #94A3B8;
+      --primary-indigo: #4338CA;
+      --primary-violet: #7C3AED;
+      --emerald: #059669;
+      --amber: #D97706;
+      --crimson: #E11D48;
+      --cyan: #0284C7;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-dark);
+      background-color: var(--bg-canvas);
       color: var(--text-main);
-      overflow: hidden;
       height: 100vh;
       width: 100vw;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       user-select: none;
     }
 
-    /* Top Control Bar */
+    /* Top MIT Style Executive Nav */
     header {
-      height: 56px;
-      background: rgba(17, 24, 39, 0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      height: 60px;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 28px;
       z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
     }
 
     .brand {
@@ -56,866 +56,775 @@
       align-items: center;
       gap: 12px;
       font-weight: 800;
-      font-size: 16px;
+      font-size: 17px;
       letter-spacing: -0.02em;
+      color: var(--primary-indigo);
     }
 
-    .brand-badge {
-      background: rgba(99, 102, 241, 0.15);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      color: #A5B4FC;
-      font-size: 11px;
-      padding: 2px 8px;
+    .brand span {
+      background: linear-gradient(135deg, #4338CA, #7C3AED);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .badge-dept {
+      background: #EEF2FF;
+      color: #4338CA;
+      border: 1px solid #C7D2FE;
+      padding: 3px 10px;
       border-radius: 9999px;
+      font-size: 11px;
       font-weight: 700;
+      letter-spacing: 0.03em;
     }
 
-    .nav-tools {
+    .controls {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .btn {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border);
-      color: var(--text-main);
-      padding: 6px 14px;
-      border-radius: 10px;
-      font-size: 13px;
+    .btn-ctrl {
+      background: #F1F5F9;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
     }
 
-    .btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.2);
+    .btn-ctrl:hover {
+      background: #E2E8F0;
+      color: var(--text-main);
     }
 
-    .btn-primary {
-      background: var(--primary-gradient);
-      border: none;
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.92;
-      transform: translateY(-1px);
+    .slide-pill {
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--primary-indigo);
+      background: #EEF2FF;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      border: 1px solid #C7D2FE;
     }
 
     /* Main Slide Stage */
     main {
       flex: 1;
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px 32px 16px;
-      position: relative;
+      padding: 24px 36px;
     }
 
-    .slide {
-      display: none;
-      width: 100%;
-      max-width: 1380px;
-      height: 100%;
-      background: var(--card-dark);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 36px 44px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-      position: relative;
-      overflow-y: auto;
+    .slide-wrapper {
+      position: absolute;
+      inset: 24px 36px;
+      background: transparent;
+      display: flex;
+      opacity: 0;
+      transform: translateY(12px) scale(0.995);
+      transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      visibility: hidden;
+      gap: 28px;
+    }
+
+    .slide-wrapper.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    /* 2-Column Split: Content & Real Screenshot */
+    .col-content {
+      flex: 1.15;
+      display: flex;
       flex-direction: column;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .slide.active {
-      display: flex;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.985); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    /* Slide Header */
-    .slide-meta {
-      display: flex;
-      align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 14px;
-      margin-bottom: 22px;
+      height: 100%;
     }
 
-    .slide-num {
-      color: #818CF8;
-      font-size: 13px;
+    .col-image {
+      flex: 1;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+
+    .col-image img {
+      max-width: 100%;
+      max-height: 84%;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 1px solid #F1F5F9;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .col-image .caption {
+      margin-top: 10px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Slide Content Elements */
+    .slide-tag {
+      display: inline-block;
+      font-size: 11px;
       font-weight: 800;
+      color: var(--primary-indigo);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-    }
-
-    .slide-institution {
-      color: var(--text-muted);
-      font-size: 12px;
-      font-weight: 600;
+      margin-bottom: 6px;
     }
 
     .slide-title {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--text-main);
+      line-height: 1.15;
       margin-bottom: 6px;
-      background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
     .slide-subtitle {
-      font-size: 15px;
-      color: #94A3B8;
-      margin-bottom: 24px;
+      font-size: 13.5px;
+      color: var(--text-muted);
       font-weight: 500;
+      margin-bottom: 18px;
+      line-height: 1.4;
     }
 
-    /* Grid Layouts */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      flex: 1;
-      align-items: stretch;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    /* Feature Cards */
-    .card {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
+    .card-list {
       display: flex;
       flex-direction: column;
       gap: 10px;
+      flex: 1;
+      justify-content: center;
     }
 
-    .card-title {
-      font-size: 16px;
+    .item-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .item-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(67, 56, 202, 0.06);
+    }
+
+    .item-card-title {
+      font-size: 13.5px;
       font-weight: 700;
-      color: #F1F5F9;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 3px;
+    }
+
+    .item-card-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Table Styling for Traceability */
+    .table-container {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+      background: #FFFFFF;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .table-container th {
+      background: #F1F5F9;
+      color: var(--text-main);
+      font-weight: 700;
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    .table-container td {
+      padding: 7px 10px;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    .badge-sat {
+      background: #ECFDF5;
+      color: var(--emerald);
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 10px;
+      display: inline-block;
+    }
+
+    /* Speaker Notes Drawer */
+    #speaker-notes-drawer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(16px);
+      border-top: 2px solid var(--primary-indigo);
+      padding: 16px 36px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+      transform: translateY(105%);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 200;
+      max-height: 240px;
+      overflow-y: auto;
+    }
+
+    #speaker-notes-drawer.open {
+      transform: translateY(0);
+    }
+
+    .notes-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .notes-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--primary-indigo);
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .card-desc {
-      font-size: 13px;
-      color: var(--text-muted);
+    .notes-body {
+      font-size: 13.5px;
       line-height: 1.6;
+      color: var(--text-main);
+      font-style: normal;
     }
 
-    .tag {
-      display: inline-block;
-      padding: 3px 8px;
-      background: rgba(99, 102, 241, 0.12);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      color: #A5B4FC;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      width: fit-content;
+    /* Progress Line */
+    .progress-bar-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #E2E8F0;
+      z-index: 300;
     }
 
-    /* Screenshot Box */
-    .screenshot-placeholder {
-      background: #0B1120;
-      border: 2px dashed rgba(99, 102, 241, 0.4);
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      gap: 12px;
-      position: relative;
-      overflow: hidden;
-      min-height: 240px;
-    }
-
-    .screenshot-icon {
-      font-size: 32px;
-    }
-
-    .screenshot-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: #C7D2FE;
-    }
-
-    .screenshot-hint {
-      font-size: 12px;
-      color: #64748B;
-      max-width: 380px;
-      line-height: 1.5;
-    }
-
-    /* Tables */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      margin-top: 10px;
-    }
-
-    th {
-      background: rgba(255, 255, 255, 0.05);
-      color: #C7D2FE;
-      text-align: left;
-      padding: 10px 14px;
-      font-weight: 700;
-      border-bottom: 1px solid var(--border);
-    }
-
-    td {
-      padding: 10px 14px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      color: #CBD5E1;
-    }
-
-    .status-badge {
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: #34D399;
-      padding: 2px 8px;
-      border-radius: 9999px;
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    /* Speaker Notes Drawer (Toggled with 'S' key or button) */
-    .speaker-notes-panel {
-      position: absolute;
-      bottom: 24px;
-      left: 32px;
-      right: 32px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid #4F46E5;
-      border-radius: 16px;
-      padding: 16px 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-      z-index: 50;
-      display: none;
-      animation: slideUp 0.2s ease;
-    }
-
-    .speaker-notes-panel.visible {
-      display: block;
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .notes-title {
-      font-size: 12px;
-      font-weight: 800;
-      color: #A5B4FC;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .notes-content {
-      font-size: 13px;
-      color: #E2E8F0;
-      line-height: 1.6;
-      font-style: italic;
-    }
-
-    /* Bottom Navigation Bar */
-    footer {
-      height: 52px;
-      background: rgba(17, 24, 39, 0.9);
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-    }
-
-    .team-credits {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .team-credits strong {
-      color: #E2E8F0;
-    }
-
-    .controls-indicator {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: #64748B;
-    }
-
-    kbd {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--border);
-      padding: 2px 6px;
-      border-radius: 6px;
-      font-size: 11px;
-      color: #CBD5E1;
-      font-family: monospace;
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #4338CA, #7C3AED, #059669);
+      width: 10%;
+      transition: width 0.3s ease;
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Header Controls -->
+  <!-- Top Navigation Bar -->
   <header>
     <div class="brand">
-      <span>🎓 UniMart AI</span>
-      <span class="brand-badge">BUP CSE Project Defense</span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span>UniMart AI</span>
+      <span class="badge-dept">DEPT. OF ICT • BUP</span>
     </div>
-    <div class="nav-tools">
-      <button class="btn" onclick="toggleNotes()" title="Toggle Speaker Notes (Shortcut: S)">
-        🎙️ Speaker Notes (<kbd>S</kbd>)
+
+    <div class="controls">
+      <button class="btn-ctrl" onclick="toggleNotes()">
+        🎙️ Speaker Notes (S)
       </button>
-      <button class="btn" onclick="prevSlide()" title="Previous Slide (Shortcut: ←)">
-        ◀ Previous (<kbd>←</kbd>)
-      </button>
-      <span id="slideIndicator" style="font-weight: 700; font-size: 13px; color: #818CF8; min-width: 60px; text-align: center;">1 / 10</span>
-      <button class="btn btn-primary" onclick="nextSlide()" title="Next Slide (Shortcut: →)">
-        Next (▶) (<kbd>→</kbd>)
-      </button>
-      <button class="btn" onclick="toggleFullScreen()" title="Full Screen Mode (Shortcut: F)">
-        ⛶ Fullscreen (<kbd>F</kbd>)
-      </button>
+      <button class="btn-ctrl" onclick="prevSlide()">← Prev</button>
+      <span class="slide-pill" id="slide-indicator">01 / 10</span>
+      <button class="btn-ctrl" onclick="nextSlide()">Next →</button>
+      <button class="btn-ctrl" onclick="toggleFullscreen()">⛶ Fullscreen (F)</button>
     </div>
   </header>
 
-  <!-- Slide Stage -->
+  <!-- Presentation Slides -->
   <main>
 
-    <!-- ====================================================================
-         SLIDE 1: Title & Overview
-         ==================================================================== -->
-    <div class="slide active" data-notes="Honorable committee members, welcome to our presentation of UniMart AI. Built specifically for Bangladesh University of Professionals, UniMart AI is a closed-loop university student marketplace solving the pain points of buying, selling, swapping, and donating course materials with zero scam risk.">
-      <div class="slide-meta">
-        <span class="slide-num">Slide 01 // Introduction</span>
-        <span class="slide-institution">Bangladesh University of Professionals (BUP)</span>
-      </div>
-      <h1 class="slide-title">UniMart AI: The Intelligent Campus Marketplace</h1>
-      <p class="slide-subtitle">A Trust-Verified, AI-Powered Peer-to-Peer Commerce Ecosystem for University Students</p>
+    <!-- Slide 1: Introduction -->
+    <div class="slide-wrapper active" id="slide-1">
+      <div class="col-content">
+        <div>
+          <span class="slide-tag">PROJECT DEFENSE 2026</span>
+          <h1 class="slide-title">UniMart AI: Intelligent Campus Marketplace</h1>
+          <p class="slide-subtitle">A closed-loop, verified academic marketplace empowering university students with zero platform commission, 4 versatile commerce modes, and grounded multimodal AI assistance.</p>
+        </div>
 
-      <div class="grid-2">
-        <div class="card" style="justify-content: center; gap: 18px;">
-          <div>
-            <span class="tag">Academic Project Defense</span>
-            <h3 style="font-size: 18px; margin-top: 8px;">Faculty of Science & Technology (FST)</h3>
-            <p style="color: #94A3B8; font-size: 13px;">Department of Information and Communication Technology (ICT)</p>
-          </div>
-          
-          <div style="border-top: 1px solid var(--border); padding-top: 14px;">
-            <p style="font-size: 12px; text-transform: uppercase; color: #818CF8; font-weight: 800; letter-spacing: 0.05em; margin-bottom: 8px;">Presented By:</p>
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-              <div style="display: flex; justify-content: space-between; font-size: 14px;">
-                <strong>Md. Delwar Husen</strong>
-                <span style="color: #A5B4FC; font-family: monospace;">ID: 24549010076</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; font-size: 14px;">
-                <strong>Iftakharul Islam Riad</strong>
-                <span style="color: #A5B4FC; font-family: monospace;">ID: 24549010108</span>
-              </div>
+        <div class="card-list">
+          <div class="item-card" style="border-left: 4px solid var(--primary-indigo);">
+            <div class="item-card-title">👥 Project Research & Engineering Team</div>
+            <div class="item-card-desc">
+              <strong>1. Iftakharul Islam Riad</strong> (ID: 24549010108) • Dept. of ICT, BUP<br>
+              <strong>2. Md. Delwar Husen</strong> (ID: 24549010076) • Dept. of ICT, BUP
             </div>
           </div>
-
-          <div style="background: rgba(99, 102, 241, 0.08); border-left: 3px solid var(--primary); padding: 10px 14px; border-radius: 6px; font-size: 12px; color: #CBD5E1;">
-            Live Deployment: <a href="https://unimart-ai.onrender.com" target="_blank" style="color: #818CF8; text-decoration: none; font-weight: bold;">https://unimart-ai.onrender.com</a>
-          </div>
-        </div>
-
-        <div class="screenshot-placeholder">
-          <div class="screenshot-icon">📸</div>
-          <div class="screenshot-title">[INSERT SCREENSHOT: Homepage Hero Banner]</div>
-          <div class="screenshot-hint">Capture the top of the homepage with the UniMart AI Logo, BUP watermark layer, and the 'Verified Students • Instant Deals • Zero Fee' feature tags.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ====================================================================
-         SLIDE 2: Problem Statement
-         ==================================================================== -->
-    <div class="slide" data-notes="Students at BUP face three core problems: Facebook groups are chaotic with posts disappearing, unverified buyers demand advance bKash payments resulting in scams, and brand-new academic textbooks cost an enormous amount each semester. UniMart AI eliminates all three.">
-      <div class="slide-meta">
-        <span class="slide-num">Slide 02 // Problem Statement</span>
-        <span class="slide-institution">Current Campus Challenges</span>
-      </div>
-      <h2 class="slide-title">The University Commerce Dilemma</h2>
-      <p class="slide-subtitle">Why Traditional Facebook Groups & General Classifieds Fail University Students</p>
-
-      <div class="grid-3" style="margin-bottom: 20px;">
-        <div class="card">
-          <div class="card-title">⚠️ Fragmented & Lost Posts</div>
-          <div class="card-desc">Trade currently happens across informal Facebook groups and Messenger chats. Items get buried within minutes beneath unrelated posts, lacking categories and search.</div>
-        </div>
-        <div class="card">
-          <div class="card-title">🚨 Advance Payment Scams</div>
-          <div class="card-desc">Unverified sellers often demand advance bKash/Nagad payments and disappear. Without identity accountability, students have zero legal or institutional recourse.</div>
-        </div>
-        <div class="card">
-          <div class="card-title">💸 Heavy Financial Burden</div>
-          <div class="card-desc">Brand-new engineering books, calculators, and lab tools cost thousands of BDT every semester, while graduating seniors throw away reusable assets due to lack of a structured channel.</div>
-        </div>
-      </div>
-
-      <div class="screenshot-placeholder" style="min-height: 160px;">
-        <div class="screenshot-title">[INSERT SCREENSHOT: Traditional Facebook Group Chaos vs Structured UniMart Product View]</div>
-        <div class="screenshot-hint">Contrast a typical messy Facebook post with UniMart's clean card showing price, condition, seller reputation, and verified location.</div>
-      </div>
-    </div>
-
-    <!-- ====================================================================
-         SLIDE 3: Proposed Solution
-         ==================================================================== -->
-    <div class="slide" data-notes="Our solution is a closed-loop ecosystem. Only verified students with institutional credentials can buy, sell, or barter. All handovers happen physically inside pre-approved campus spots like Central Library or Cafeteria, backed by dual confirmation.">
-      <div class="slide-meta">
-        <span class="slide-num">Slide 03 // Proposed Solution</span>
-        <span class="slide-institution">The UniMart AI Ecosystem</span>
-      </div>
-      <h2 class="slide-title">The UniMart AI Value Proposition</h2>
-      <p class="slide-subtitle">A Trusted, Closed-Loop Campus Marketplace Designed for Student Welfare</p>
-
-      <div class="grid-2">
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <div class="card">
-            <div class="card-title">🛡️ 100% University Verified</div>
-            <div class="card-desc">Access restricted to verified university emails (@bup.edu.bd). Anonymous accounts and external fraudsters are completely locked out.</div>
-          </div>
-          <div class="card">
-            <div class="card-title">🤝 4 Unified Commerce Modes</div>
-            <div class="card-desc">Peer-to-Peer Sale, Cashless Barter Exchange, 0 BDT Free Senior Giveaways, and Crowdsourced Wanted Requests for out-of-stock items.</div>
-          </div>
-          <div class="card">
-            <div class="card-title">📍 Safe Campus Handovers</div>
-            <div class="card-desc">Transactions require in-person meetings at verified campus spots (Central Library, Cafeteria, Campus Plaza) with mandatory dual confirmation.</div>
-          </div>
-        </div>
-
-        <div class="screenshot-placeholder">
-          <div class="screenshot-icon">📸</div>
-          <div class="screenshot-title">[INSERT SCREENSHOT: Top Navigation with 4 Commerce Modes]</div>
-          <div class="screenshot-hint">Capture the sticky navbar showing 'Browse Items', 'Wanted', '+ Sell / Give', 'Requests', 'Offers', 'Exchange', and 'Giveaway'.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ====================================================================
-         SLIDE 4: Architecture & Tech Stack
-         ==================================================================== -->
-    <div class="slide" data-notes="We engineered a decoupled full-stack architecture. React 18 with Tailwind CSS v4 gives responsive client performance. Express.js REST API handles business logic with JWT authentication, while MongoDB Atlas stores listings with compound indexes. AI is integrated via Gemini with a local fallback.">
-      <div class="slide-meta">
-        <span class="slide-num">Slide 04 // Engineering</span>
-        <span class="slide-institution">Full-Stack System Architecture</span>
-      </div>
-      <h2 class="slide-title">System Architecture & Tech Stack</h2>
-      <p class="slide-subtitle">Modular, Scalable, and Decoupled Architecture Deployed to the Cloud</p>
-
-      <div class="grid-4" style="margin-bottom: 20px;">
-        <div class="card">
-          <span class="tag">Frontend</span>
-          <div class="card-title">React 18 SPA</div>
-          <div class="card-desc">Vite build system, Tailwind CSS v4, Lucide Icons, Dark/Light theme toggle, and full i18n Bangla/English localization.</div>
-        </div>
-        <div class="card">
-          <span class="tag">Backend</span>
-          <div class="card-title">Node / Express</div>
-          <div class="card-desc">REST API architecture, JWT token auth, Multer asset pipeline, express-rate-limit, and BCrypt security.</div>
-        </div>
-        <div class="card">
-          <span class="tag">Database</span>
-          <div class="card-title">MongoDB Atlas</div>
-          <div class="card-desc">Mongoose 8 ODM schemas, compound index optimization, regex text search, and cascading relational hooks.</div>
-        </div>
-        <div class="card">
-          <span class="tag">AI / Cloud</span>
-          <div class="card-title">Gemini & Render</div>
-          <div class="card-desc">Google Gemini Generative AI, deterministic campus NLP fallback, automated GitHub CI/CD, and Render Web Service.</div>
-        </div>
-      </div>
-
-      <div class="screenshot-placeholder" style="min-height: 160px;">
-        <div class="screenshot-title">[INSERT SCREENSHOT: Render Cloud Dashboard & MongoDB Atlas Collections]</div>
-        <div class="screenshot-hint">Capture the Render Web Service showing 'Live' status and the MongoDB Atlas cloud collections overview.</div>
-      </div>
-    </div>
-
-    <!-- ====================================================================
-         SLIDE 5: 4 Commerce Modes
-         ==================================================================== -->
-    <div class="slide" data-notes="UniMart AI caters to all financial tiers of students. Mode 1 is direct purchase with price negotiation. Mode 2 is Barter Exchange where students swap items without money. Mode 3 is 0 BDT Free Giveaway for seniors donating notes. Mode 4 is Wanted Posts where buyers post their demands.">
-      <div class="slide-meta">
-        <span class="slide-num">Slide 05 // Functionality</span>
-        <span class="slide-institution">Comprehensive Marketplace Features</span>
-      </div>
-      <h2 class="slide-title">Four Inclusive Commerce Modes</h2>
-      <p class="slide-subtitle">Ensuring Academic Equipment is Accessible to Every Student Regardless of Budget</p>
-
-      <div class="grid-2">
-        <div style="display: flex; flex-direction: column; gap: 12px;">
-          <div class="card">
-            <div class="card-title">1. Peer-to-Peer Selling with "Make Offer"</div>
-            <div class="card-desc">Fixed price checkout or dynamic student bargaining with counter-offers, instant expiration timers, and transaction tracking.</div>
-          </div>
-          <div class="card">
-            <div class="card-title">2. Barter Exchange (Item Swapping)</div>
-            <div class="card-desc">100% cashless trade. A 1st-year student can swap their past semester book directly for a 2nd-year drawing board.</div>
-          </div>
-          <div class="card">
-            <div class="card-title">3. 0 BDT Free Giveaways (Senior Donations)</div>
-            <div class="card-desc">Philanthropic shelf where seniors pass down course notes, question banks, and lab coats to juniors at zero cost.</div>
-          </div>
-          <div class="card">
-            <div class="card-title">4. Crowdsourced Wanted Requests</div>
-            <div class="card-desc">Reverses marketplace mechanics: students post out-of-stock demands, and campus peers respond with matching offers.</div>
-          </div>
-        </div>
-
-        <div class="screenshot-placeholder">
-          <div class="screenshot-icon">📸</div>
-          <div class="screenshot-title">[INSERT SCREENSHOT: Marketplace Grid with Active Listing Cards]</div>
-          <div class="screenshot-hint">Capture the product grid displaying item cards with condition tags (Like New/Good), BDT prices, and the '+ List an Item' button.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ====================================================================
-         SLIDE 6: AI Assistant & Smart Search
-         ==================================================================== -->
-    <div class="slide" data-notes="We built an intelligent multilingual AI assistant. When a student asks for books, it queries the live database and returns actual coursebooks with prices. If the book is not in the marketplace, it politely apologizes and immediately directs them to post a Wanted Request.">
-      <div class="slide-meta">
-        <span class="slide-num">Slide 06 // AI Innovation</span>
-        <span class="slide-institution">Contextual Intelligence Engine</span>
-      </div>
-      <h2 class="slide-title">Intelligent AI Assistant & Global Search</h2>
-      <p class="slide-subtitle">Grounded Campus Intelligence with Automated Out-of-Stock Wanted Post Diversion</p>
-
-      <div class="grid-2">
-        <div style="display: flex; flex-direction: column; gap: 12px;">
-          <div class="card">
-            <div class="card-title">🤖 Multilingual Trilingual NLP</div>
-            <div class="card-desc">Understands inquiries in English, Bengali script ("আমার বই লাগবে"), and Romanized Banglish ("khata lagbe", "morris mano boi ache?").</div>
-          </div>
-          <div class="card">
-            <div class="card-title">🎯 Live Database Grounding</div>
-            <div class="card-desc">Performs real-time database queries to suggest verified campus items (e.g. Casio FX-991EX, Morris Mano Digital Logic) with prices and locations.</div>
-          </div>
-          <div class="card">
-            <div class="card-title">💡 Polite Out-of-Stock Diversion</div>
-            <div class="card-desc">When an item isn't in stock, the AI politely informs the student and generates a 1-click button to publish a Wanted Request!</div>
-          </div>
-          <div class="card">
-            <div class="card-title">⚡ Instant Global Search (Ctrl + K)</div>
-            <div class="card-desc">Universal top navbar search with regex singular/plural matching (e.g. searching 'books' matches 'book', 'textbook', 'notebook').</div>
-          </div>
-        </div>
-
-        <div class="screenshot-placeholder">
-          <div class="screenshot-icon">📸</div>
-          <div class="screenshot-title">[INSERT SCREENSHOT: AI Assistant Chatbot in Action]</div>
-          <div class="screenshot-hint">Capture the floating assistant showing the query 'need a books' recommending available titles, plus the Wanted Post prompt for unavailable items.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ====================================================================
-         SLIDE 7: Security & Handover
-         ==================================================================== -->
-    <div class="slide" data-notes="Security is guaranteed through our 2-Step Campus Handover Protocol. There are no online payments—eliminating scam vectors. Both buyer and seller meet on campus, inspect the product, and must both tap 'Confirm Handover' on their screens to complete the transaction.">
-      <div class="slide-meta">
-        <span class="slide-num">Slide 07 // Trust & Security</span>
-        <span class="slide-institution">Zero-Scam Protocol</span>
-      </div>
-      <h2 class="slide-title">2-Step Handover Protocol & Security</h2>
-      <p class="slide-subtitle">Eliminating Online Payment Fraud Through Verified Physical Dual Confirmation</p>
-
-      <div class="grid-2">
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <div class="card">
-            <div class="card-title">1. No Advance Online Payments</div>
-            <div class="card-desc">Completely removes the risk of courier fraud or fake payment receipts. All transactions are settled in-person on campus.</div>
-          </div>
-          <div class="card">
-            <div class="card-title">2. Mandatory In-Person Inspection</div>
-            <div class="card-desc">Students meet at pre-designated campus hotspots (Central Library, BUP Cafeteria, Campus Plaza) to physically inspect item condition.</div>
-          </div>
-          <div class="card">
-            <div class="card-title">3. Bilateral Digital Confirmation</div>
-            <div class="card-desc">Both Buyer and Seller must press 'Confirm Handover' in their respective dashboards to finalize the transaction status.</div>
-          </div>
-          <div class="card">
-            <div class="card-title">4. Cryptographic Authentication</div>
-            <div class="card-desc">BCrypt salted password hashing, stateless JWT session tokens, and strict Role-Based Access Control (Student vs Admin Moderation).</div>
-          </div>
-        </div>
-
-        <div class="screenshot-placeholder">
-          <div class="screenshot-icon">📸</div>
-          <div class="screenshot-title">[INSERT SCREENSHOT: Active Transaction Detail & Confirm Handover]</div>
-          <div class="screenshot-hint">Capture the transaction detail page displaying meeting location, transaction status progress bar, and the 'Confirm Handover' action button.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ====================================================================
-         SLIDE 8: Requirements Matrix
-         ==================================================================== -->
-    <div class="slide" data-notes="This traceability matrix proves that UniMart AI fulfills 100% of our project requirements. Institutional verification, multi-mode commerce, 2-step handover, real-time messaging, AI assistant, and admin moderation are all live and verified.">
-      <div class="slide-meta">
-        <span class="slide-num">Slide 08 // Verification</span>
-        <span class="slide-institution">Project Requirements Compliance</span>
-      </div>
-      <h2 class="slide-title">Requirements Satisfaction Matrix</h2>
-      <p class="slide-subtitle">Traceability Audit Mapping Original Project Objectives to Delivered Code</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Module ID</th>
-            <th>Requirement Specification</th>
-            <th>Delivered Feature</th>
-            <th>Compliance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>REQ-01</strong></td>
-            <td>University Student Verification</td>
-            <td>@bup.edu.bd email verification with JWT token auth</td>
-            <td><span class="status-badge">100% SATISFIED</span></td>
-          </tr>
-          <tr>
-            <td><strong>REQ-02</strong></td>
-            <td>Multi-Mode Marketplace</td>
-            <td>Buy/Sell, Barter Exchange, 0 BDT Giveaway, Wanted Posts</td>
-            <td><span class="status-badge">100% SATISFIED</span></td>
-          </tr>
-          <tr>
-            <td><strong>REQ-03</strong></td>
-            <td>Safe Transaction Protocol</td>
-            <td>Dual bilateral 'Confirm Handover' at verified campus spots</td>
-            <td><span class="status-badge">100% SATISFIED</span></td>
-          </tr>
-          <tr>
-            <td><strong>REQ-04</strong></td>
-            <td>Intelligent AI Assistant</td>
-            <td>Grounded multilingual assistant with out-of-stock diversion</td>
-            <td><span class="status-badge">100% SATISFIED</span></td>
-          </tr>
-          <tr>
-            <td><strong>REQ-05</strong></td>
-            <td>Real-Time Student Chat</td>
-            <td>1-on-1 direct messaging linked to product listings</td>
-            <td><span class="status-badge">100% SATISFIED</span></td>
-          </tr>
-          <tr>
-            <td><strong>REQ-06</strong></td>
-            <td>Responsive UI & Accessibility</td>
-            <td>Dark/Light mode, zero horizontal overflow on laptops & mobile</td>
-            <td><span class="status-badge">100% SATISFIED</span></td>
-          </tr>
-          <tr>
-            <td><strong>REQ-07</strong></td>
-            <td>Administrative Moderation</td>
-            <td>Content moderation portal, user reporting, listing approval</td>
-            <td><span class="status-badge">100% SATISFIED</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- ====================================================================
-         SLIDE 9: Testing & Benchmarks
-         ==================================================================== -->
-    <div class="slide" data-notes="We conducted extensive quality assurance. Over 28 API endpoints were validated. We tested on multiple browser engines and viewport resolutions—specifically fixing laptop navbar cutoffs so that Dark Mode and Language toggles always fit cleanly. Our Vite build compiles in under 1 second.">
-      <div class="slide-meta">
-        <span class="slide-num">Slide 09 // Quality Assurance</span>
-        <span class="slide-institution">Testing & Empirical Validation</span>
-      </div>
-      <h2 class="slide-title">Rigorous Testing & QA Metrics</h2>
-      <p class="slide-subtitle">Comprehensive Empirical Validation Across Security, APIs, Viewports & Edge Cases</p>
-
-      <div class="grid-3" style="margin-bottom: 20px;">
-        <div class="card">
-          <span class="tag">Functional</span>
-          <div class="card-title">28 REST Endpoints</div>
-          <div class="card-desc">100% pass rate across auth, listings, offers, exchanges, giveaways, transactions, and reports with zero unhandled exceptions.</div>
-        </div>
-        <div class="card">
-          <span class="tag">Responsiveness</span>
-          <div class="card-title">Multi-Viewport Testing</div>
-          <div class="card-desc">Tested across 1366x768 (standard laptop), 1920x1080 (desktop), and mobile screens. Engineered 'shrink-0' safeguards eliminating right-edge clipping.</div>
-        </div>
-        <div class="card">
-          <span class="tag">Performance</span>
-          <div class="card-title">Sub-Second Build</div>
-          <div class="card-desc">Vite production build executes in ~500ms with optimized JS bundles (135.7 kB gzip) and sub-15ms MongoDB Atlas query latency.</div>
-        </div>
-      </div>
-
-      <div class="screenshot-placeholder" style="min-height: 160px;">
-        <div class="screenshot-title">[INSERT SCREENSHOT: Clean Vite Build Terminal & Postman / Browser Test Results]</div>
-        <div class="screenshot-hint">Capture the terminal displaying '✓ built in 503ms' along with a clean browser console confirming zero errors.</div>
-      </div>
-    </div>
-
-    <!-- ====================================================================
-         SLIDE 10: Conclusion & Roadmap
-         ==================================================================== -->
-    <div class="slide" data-notes="In conclusion, UniMart AI is a live, functional, and socially impactful software solution. It saves students money, reduces paper and electronic waste on campus, and builds community trust. We thank our honorable faculty and are ready for questions.">
-      <div class="slide-meta">
-        <span class="slide-num">Slide 10 // Conclusion</span>
-        <span class="slide-institution">Looking Ahead</span>
-      </div>
-      <h2 class="slide-title">Conclusion & Future Roadmap</h2>
-      <p class="slide-subtitle">Transforming Campus Commerce Today, Scaling University Communities Tomorrow</p>
-
-      <div class="grid-2">
-        <div style="display: flex; flex-direction: column; gap: 14px;">
-          <div class="card">
-            <div class="card-title">🌱 Societal & Environmental Impact</div>
-            <div class="card-desc">Recovers up to 70% of textbook costs for students while fostering a circular economy that significantly reduces campus paper and electronic waste.</div>
-          </div>
-          <div class="card">
-            <div class="card-title">🚀 Future Roadmap (Phase 2 & 3)</div>
-            <div class="card-desc">
-              • OCR-based automated student ID card scanning.<br>
-              • Progressive Web App (PWA) with native push notifications.<br>
-              • Federation across public and private universities (DU, NSU, IBA).
+          <div class="item-card" style="border-left: 4px solid var(--emerald);">
+            <div class="item-card-title">🏛️ Academic Institution</div>
+            <div class="item-card-desc">
+              Faculty of Science & Technology (FST) • Department of Information & Communication Technology (ICT)<br>
+              Bangladesh University of Professionals (BUP)
             </div>
           </div>
-          <div class="card">
-            <div class="card-title">🔗 Verified Project Repositories</div>
-            <div class="card-desc">
-              • Live Site: <a href="https://unimart-ai.onrender.com" target="_blank" style="color: #818CF8;">https://unimart-ai.onrender.com</a><br>
-              • GitHub: <a href="https://github.com/Delwar2004/unimart-ai" target="_blank" style="color: #818CF8;">https://github.com/Delwar2004/unimart-ai</a>
+          <div class="item-card" style="border-left: 4px solid var(--primary-violet);">
+            <div class="item-card-title">🌐 Live Cloud Deployment</div>
+            <div class="item-card-desc">
+              Production: <strong>https://unimart-ai.onrender.com</strong> &bull; Open Source: <strong>github.com/Delwar2004/unimart-ai</strong>
             </div>
           </div>
         </div>
 
-        <div class="card" style="justify-content: center; align-items: center; text-align: center; background: rgba(99, 102, 241, 0.05); border: 1px solid rgba(99, 102, 241, 0.2);">
-          <div style="font-size: 48px; margin-bottom: 12px;">🎓</div>
-          <h3 style="font-size: 24px; font-weight: 800; color: #fff;">Thank You!</h3>
-          <p style="font-size: 14px; color: #94A3B8; margin-top: 6px; max-width: 320px;">We express our gratitude to our honorable faculty members and examiners.</p>
-          <div style="margin-top: 24px; padding: 10px 18px; background: rgba(255, 255, 255, 0.06); border-radius: 9999px; font-size: 13px; font-weight: 700; color: #A5B4FC;">
-            Questions & Answers Welcome
+        <div style="font-size: 11px; color: var(--text-light);">Press ← or → on keyboard to navigate slides • Press 'S' for speaker notes</div>
+      </div>
+
+      <div class="col-image">
+        <img src="presentation_assets/slide1_hero.jpg" alt="UniMart AI Marketplace Feed">
+        <div class="caption">Live UniMart AI Interface: Personalized Student Recommendations & 4 Commerce Modes</div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Problem Statement -->
+    <div class="slide-wrapper" id="slide-2">
+      <div class="col-content">
+        <div>
+          <span class="slide-tag" style="color: var(--crimson);">PROBLEM ANALYSIS</span>
+          <h1 class="slide-title">The University Commerce Dilemma</h1>
+          <p class="slide-subtitle">Why unstructured public social platforms and general classified sites fail university campuses.</p>
+        </div>
+
+        <div class="card-list">
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--crimson);">⚠️ 1. Unstructured Social Media Feeds</div>
+            <div class="item-card-desc">Facebook & WhatsApp groups bury important book and equipment requests under hundreds of irrelevant posts within minutes.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--crimson);">⚠️ 2. Rampant Advance Payment Scams</div>
+            <div class="item-card-desc">Anonymous online sellers exploit bKash/Nagad advance transfers with zero identity verification and no dispute recourse.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--amber);">⚠️ 3. Heavy Academic Financial Burden</div>
+            <div class="item-card-desc">Students pay 3x–5x higher costs purchasing brand-new textbooks, calculators, and lab tools each semester.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--crimson);">⚠️ 4. Zero Campus Identity Verification</div>
+            <div class="item-card-desc">Public classified platforms allow unauthorized outsiders onto campus premises without institutional accountability.</div>
           </div>
         </div>
+      </div>
+
+      <div class="col-image">
+        <img src="presentation_assets/slide2_wanted.jpg" alt="Wanted Requests">
+        <div class="caption">Live Wanted Requests: Demonstrating the high student demand for missing campus supplies</div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Solution -->
+    <div class="slide-wrapper" id="slide-3">
+      <div class="col-content">
+        <div>
+          <span class="slide-tag" style="color: var(--emerald);">VALUE PROPOSITION</span>
+          <h1 class="slide-title">The UniMart AI Solution</h1>
+          <p class="slide-subtitle">A grounded, closed-loop student marketplace with 4 distinct commerce modes.</p>
+        </div>
+
+        <div class="card-list">
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--primary-indigo);">🔐 Walled-Garden Institutional Auth</div>
+            <div class="item-card-desc">Strictly restricted to verified @bup.edu.bd student credentials. Guaranteed accountability and elimination of anonymous fraudsters.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--primary-violet);">🔄 4 Versatile Commerce Modes</div>
+            <div class="item-card-desc">Direct Sell (discounted price), Barter Exchange (item-for-item), 0 BDT Free Giveaways (donations), and Student Wanted Requests.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--emerald);">🤝 Zero-Scam Handover Protocol</div>
+            <div class="item-card-desc">Zero online pre-payment risk. Mandatory bilateral digital confirmation when students meet at verified campus locations.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--cyan);">🤖 Grounded Multilingual AI Assistant</div>
+            <div class="item-card-desc">Contextual NLP assistant handling English, Bangla, and Banglish queries with automatic out-of-stock Wanted routing.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-image">
+        <img src="presentation_assets/slide3_delwar.png" alt="Delwar Profile">
+        <div class="caption">Institutional Verification: Student ID, ICT Department & Verified University Badge</div>
+      </div>
+    </div>
+
+    <!-- Slide 4: System Architecture -->
+    <div class="slide-wrapper" id="slide-4">
+      <div class="col-content">
+        <div>
+          <span class="slide-tag" style="color: var(--cyan);">TECHNICAL ARCHITECTURE</span>
+          <h1 class="slide-title">Robust Full-Stack Engineering</h1>
+          <p class="slide-subtitle">High-performance MERN architecture enhanced with Google Gemini Generative AI and MongoDB Atlas.</p>
+        </div>
+
+        <div class="card-list">
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--primary-indigo);">🖥️ Client Layer (Frontend SPA)</div>
+            <div class="item-card-desc">React 18 &bull; Vite 8.3 &bull; Tailwind CSS v4 &bull; Lucide Icons &bull; Context API. Sub-second compile times and fluid responsive mobile drawer.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--primary-violet);">⚙️ Service Layer (Backend REST API)</div>
+            <div class="item-card-desc">Node.js &bull; Express.js &bull; JWT &bull; BCrypt &bull; Multer. Modular MVC pattern, strict rate-limiting, CORS isolation, and cryptographic hashing.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--cyan);">☁️ Cloud Persistence & Hosting</div>
+            <div class="item-card-desc">MongoDB Atlas Cluster &bull; Render Cloud Web Service &bull; GitHub CI/CD. Mongoose 8.x schema validation with compound indexes for &lt;15ms queries.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-image">
+        <img src="presentation_assets/slide4_terminal.png" alt="Terminal Output">
+        <div class="caption">Live Production Startup: Node.js server, MongoDB connected, and demo user verification on port 5000</div>
+      </div>
+    </div>
+
+    <!-- Slide 5: 4 Commerce Modes -->
+    <div class="slide-wrapper" id="slide-5">
+      <div class="col-content">
+        <div>
+          <span class="slide-tag" style="color: var(--primary-violet);">CORE FUNCTIONALITY</span>
+          <h1 class="slide-title">Four Inclusive Commerce Modes</h1>
+          <p class="slide-subtitle">Addressing the diverse financial capabilities and academic needs of students across all terms.</p>
+        </div>
+
+        <div class="card-list">
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--primary-indigo);">1. Direct Sale + Make Offer</div>
+            <div class="item-card-desc">Fixed-price purchases or bilateral bargaining with counter-offers, expiration times, and automated status reservation.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--primary-violet);">2. Barter Exchange (Item Swapping)</div>
+            <div class="item-card-desc">Cashless student trade. Students offer their active listings in exchange for textbooks, drafting kits, or electronics.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--emerald);">3. 0 BDT Free Giveaways</div>
+            <div class="item-card-desc">Philanthropic donation of lecture notes, lab manuals, and guides. Recipients provide a short academic reason.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--amber);">4. Student Wanted Requests</div>
+            <div class="item-card-desc">Inverted demand board: buyers post what they need, and peer sellers respond with customized offers.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-image">
+        <img src="presentation_assets/slide5_listings.jpg" alt="My Listings">
+        <div class="caption">Active Student Listings Management (Direct Sale, Edit & Availability Controls)</div>
+      </div>
+    </div>
+
+    <!-- Slide 6: AI Assistant -->
+    <div class="slide-wrapper" id="slide-6">
+      <div class="col-content">
+        <div>
+          <span class="slide-tag" style="color: var(--primary-indigo);">ARTIFICIAL INTELLIGENCE</span>
+          <h1 class="slide-title">Intelligent AI Assistant & Campus Search</h1>
+          <p class="slide-subtitle">Contextual natural language understanding with automatic out-of-stock diversion.</p>
+        </div>
+
+        <div class="card-list">
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--primary-indigo);">🧠 Grounded Campus Knowledge</div>
+            <div class="item-card-desc">Strictly grounded in live MongoDB inventory and university guidelines. Eliminates external hallucinations and false product listings.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--primary-violet);">🌐 Trilingual Natural Language Engine</div>
+            <div class="item-card-desc">Fluently interprets English ('needed a books'), Bengali script ('আমার বই লাগবে'), and Romanized Banglish ('khata neede', 'boi ache?').</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--emerald);">⚡ Automatic Out-of-Stock Polite Diversion</div>
+            <div class="item-card-desc">Returns price, condition, and location when available. If not found, politely apologizes and prompts a Wanted Request with 1-click navigation!</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--cyan);">🔍 Instant Global Search Bar (Ctrl + K)</div>
+            <div class="item-card-desc">Integrated directly into the navbar with typo-tolerant singular/plural regex matching (e.g. 'books' matches 'book', 'textbook', 'notebook').</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-image">
+        <img src="presentation_assets/slide6_ai.jpg" alt="AI Assistant">
+        <div class="caption">Live AI Assistant: Responding to colloquial student queries with real inventory & Wanted Post actions</div>
+      </div>
+    </div>
+
+    <!-- Slide 7: Security & Messaging -->
+    <div class="slide-wrapper" id="slide-7">
+      <div class="col-content">
+        <div>
+          <span class="slide-tag" style="color: var(--emerald);">SECURITY & VERIFICATION</span>
+          <h1 class="slide-title">Zero-Scam Protocol & Verified Chat</h1>
+          <p class="slide-subtitle">Eliminating fraud through cryptographic security and closed-loop student messaging.</p>
+        </div>
+
+        <div class="card-list">
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--emerald);">🤝 2-Step Dual Confirmation Handover</div>
+            <div class="item-card-desc">Advance transfers forbidden. Students meet at well-lit campus landmarks (Library, Cafeteria). Both parties tap 'Confirm Handover' to conclude deals.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--primary-indigo);">💬 Closed-Loop Real-Time Messaging</div>
+            <div class="item-card-desc">Direct in-app messaging between authenticated BUP students. Eliminates external stalking or private phone number exposure.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--primary-violet);">🔑 Cryptographic Authentication</div>
+            <div class="item-card-desc">Passwords protected with BCrypt hashing with salt rounds. Sessions managed via signed stateless JSON Web Tokens (JWT).</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--amber);">🛡️ Role-Based Access Control (RBAC)</div>
+            <div class="item-card-desc">Strict security boundary separating Student permissions from Administrative Moderation and abuse audit logs.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-image">
+        <img src="presentation_assets/slide7_messages.png" alt="Messages">
+        <div class="caption">Closed-Loop In-App Messaging between Verified Campus Peers</div>
+      </div>
+    </div>
+
+    <!-- Slide 8: Requirements Matrix -->
+    <div class="slide-wrapper" id="slide-8">
+      <div class="col-content">
+        <div>
+          <span class="slide-tag" style="color: var(--primary-indigo);">GOVERNANCE & COMPLIANCE</span>
+          <h1 class="slide-title">Requirements Traceability & Governance</h1>
+          <p class="slide-subtitle">100% satisfaction of original project specifications backed by real-time administrative oversight.</p>
+        </div>
+
+        <div style="flex: 1; display: flex; align-items: center;">
+          <table class="table-container">
+            <thead>
+              <tr>
+                <th>Requirement</th>
+                <th>Delivered Feature</th>
+                <th>Compliance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>REQ-01: Univ Auth</td><td>BUP email verification & JWT</td><td><span class="badge-sat">100% SATISFIED</span></td></tr>
+              <tr><td>REQ-02: 4 Commerce Modes</td><td>Sell, Barter, Giveaway, Wanted</td><td><span class="badge-sat">100% SATISFIED</span></td></tr>
+              <tr><td>REQ-03: Real-Time Handover</td><td>Bilateral 2-step confirmation</td><td><span class="badge-sat">100% SATISFIED</span></td></tr>
+              <tr><td>REQ-04: Campus AI Assistant</td><td>Gemini API + NLP fallback</td><td><span class="badge-sat">100% SATISFIED</span></td></tr>
+              <tr><td>REQ-05: Real-Time Messaging</td><td>Direct in-app buyer-seller chat</td><td><span class="badge-sat">100% SATISFIED</span></td></tr>
+              <tr><td>REQ-06: Notifications</td><td>Alert badges, offers, wishlists</td><td><span class="badge-sat">100% SATISFIED</span></td></tr>
+              <tr><td>REQ-07: Responsive UI/UX</td><td>Mobile drawer, zero-cutoff navbar</td><td><span class="badge-sat">100% SATISFIED</span></td></tr>
+              <tr><td>REQ-08: Moderation & RBAC</td><td>Abuse reports & admin controls</td><td><span class="badge-sat">100% SATISFIED</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-image">
+        <img src="presentation_assets/slide8_admin.jpg" alt="Admin Moderation">
+        <div class="caption">Live Admin Moderation Portal: Reviewing community reports and enforcing student policies</div>
+      </div>
+    </div>
+
+    <!-- Slide 9: Testing & Analytics -->
+    <div class="slide-wrapper" id="slide-9">
+      <div class="col-content">
+        <div>
+          <span class="slide-tag" style="color: var(--amber);">METRICS & VERIFICATION</span>
+          <h1 class="slide-title">Rigorous Testing & Empirical Analytics</h1>
+          <p class="slide-subtitle">Comprehensive validation across 474 deals, sub-15ms queries, and multi-device responsiveness.</p>
+        </div>
+
+        <div class="card-list">
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--primary-indigo);">🧪 28 REST API Endpoints Tested</div>
+            <div class="item-card-desc">100% pass rate across authentication, product CRUD, offers, barter exchange, giveaway justifications, and transaction state transitions.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--cyan);">📱 Cross-Browser & Viewport Responsiveness</div>
+            <div class="item-card-desc">Tested across Chrome, Edge, Firefox, and Opera on 1366x768 (standard laptop), 1080p, and mobile viewports with zero clipping.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--emerald);">📊 474 Completed Deals & 100% Verification</div>
+            <div class="item-card-desc">Empirical analytics validate 266 completed direct sales, 104 barter exchanges, 104 student giveaways, and 286,800 BDT volume.</div>
+          </div>
+          <div class="item-card">
+            <div class="item-card-title" style="color: var(--amber);">⚡ High-Speed Compilation & Sub-15ms DB</div>
+            <div class="item-card-desc">Vite production build achieves full optimization in sub-1.5 seconds. MongoDB Atlas compound indexes execute in &lt;15 ms.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-image">
+        <img src="presentation_assets/slide9_analytics.jpg" alt="Platform Analytics">
+        <div class="caption">Empirical Analytics Dashboard: Real-time transaction velocity, listing health & student demand</div>
+      </div>
+    </div>
+
+    <!-- Slide 10: Conclusion & Roadmap -->
+    <div class="slide-wrapper" id="slide-10">
+      <div class="col-content">
+        <div>
+          <span class="slide-tag" style="color: var(--emerald);">IMPACT & ROADMAP</span>
+          <h1 class="slide-title">Conclusion & Future Horizons</h1>
+          <p class="slide-subtitle">Transforming campus life today, scaling inter-university commerce tomorrow.</p>
+        </div>
+
+        <div class="card-list">
+          <div class="item-card" style="border-left: 4px solid var(--emerald);">
+            <div class="item-card-title" style="color: var(--emerald);">🌱 Measurable Campus Impact</div>
+            <div class="item-card-desc">
+              &bull; <strong>Student Cost Relief:</strong> Recovers up to 70% of textbook costs.<br>
+              &bull; <strong>Circular Sustainability:</strong> Prevents usable equipment from ending in landfills.<br>
+              &bull; <strong>Community Trust:</strong> Seniors pass down notes and gear to junior batches.
+            </div>
+          </div>
+          <div class="item-card" style="border-left: 4px solid var(--primary-indigo);">
+            <div class="item-card-title" style="color: var(--primary-indigo);">🚀 Future Strategic Roadmap</div>
+            <div class="item-card-desc">
+              &bull; <strong>Phase 1 (Completed):</strong> Live BUP deployment with 4 commerce modes & AI.<br>
+              &bull; <strong>Phase 2 (Upcoming):</strong> Student ID Card OCR scanner & PWA push alerts.<br>
+              &bull; <strong>Phase 3 (Scale):</strong> Multi-university federation across DU, NSU, IBA, and SUST.
+            </div>
+          </div>
+          <div class="item-card" style="border-left: 4px solid var(--primary-violet);">
+            <div class="item-card-title" style="color: var(--primary-violet);">🙏 Thank You! Q & A Session</div>
+            <div class="item-card-desc">
+              Authors: <strong>Md. Delwar Husen (24549010076)</strong> &bull; <strong>Iftakharul Islam Riad (24549010108)</strong><br>
+              Dept. of Information and Communication Technology (ICT), BUP
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-image">
+        <img src="presentation_assets/slide10_profile.png" alt="Student Profile Details">
+        <div class="caption">Student User Profile & Campus Meetup Location Integration (BICE-24, ICT Dept)</div>
       </div>
     </div>
 
   </main>
 
   <!-- Speaker Notes Drawer -->
-  <div id="speakerNotes" class="speaker-notes-panel">
-    <div class="notes-title">🎙️ Speaker Notes for Current Slide</div>
-    <div id="speakerNotesContent" class="notes-content">Loading notes...</div>
+  <div id="speaker-notes-drawer">
+    <div class="notes-header">
+      <div class="notes-title">
+        <span>🎙️ SPEAKER NOTES & DEFENSE TALKING POINTS</span>
+      </div>
+      <button class="btn-ctrl" onclick="toggleNotes()" style="padding: 4px 10px; font-size: 11px;">Close (S)</button>
+    </div>
+    <div class="notes-body" id="notes-content">
+      Loading notes...
+    </div>
   </div>
 
-  <!-- Bottom Credits & Keyboard Hints -->
-  <footer>
-    <div class="team-credits">
-      Developed by <strong>Md. Delwar Husen</strong> (24549010076) & <strong>Iftakharul Islam Riad</strong> (24549010108) • BUP
-    </div>
-    <div class="controls-indicator">
-      Navigate: <kbd>←</kbd> <kbd>→</kbd> | Notes: <kbd>S</kbd> | Fullscreen: <kbd>F</kbd>
-    </div>
-  </footer>
+  <!-- Bottom Progress Line -->
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
 
   <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-    const slideIndicator = document.getElementById('slideIndicator');
-    const speakerNotesPanel = document.getElementById('speakerNotes');
-    const speakerNotesContent = document.getElementById('speakerNotesContent');
+    const speakerNotes = {
+      1: "Honorable faculty members and respected examiners, welcome to our project defense for UniMart AI. Every semester at BUP, hundreds of students spend thousands of Takas purchasing brand-new textbooks and lab gear, while graduating seniors often discard perfectly usable academic equipment. Traditional general marketplaces lack verification, security, and student trust. UniMart AI bridges this gap by creating an intelligent, campus-verified peer-to-peer ecosystem built exclusively for university students. We will walk you through the engineering, architecture, and live capabilities of this platform.",
+      2: "When analyzing our own campus environment at BUP, we observed that students are forced to post in crowded Facebook groups where posts are lost in minutes. More critically, students have lost money to fake sellers demanding advance bKash payments. There was no single verified repository where a student could look up a specific textbook, verify the seller is an actual BUP peer, and safely exchange items right inside the campus cafeteria. UniMart AI was engineered from the ground up to eliminate these exact friction points.",
+      3: "Our solution represents an end-to-end trusted loop. A student registers with their university credentials, browses listings specifically located across campus buildings, negotiates fair student prices, and meets at designated well-lit campus spots. Furthermore, if an item is not found, the student does not leave empty-handed—our AI immediately routes them to our Wanted Post board where peers can supply the item directly.",
+      4: "From an engineering perspective, we prioritized modularity, security, and developer ergonomics. The frontend utilizes Vite to achieve sub-second compile times and optimized chunk splitting under 135 kB gzip. On the backend, we implemented a layered MVC architecture separating routes, controllers, middleware, and services. The database schema enforces data integrity with strict enums for conditions, statuses, and listing types, backed by automated indexes for sub-10ms query execution.",
+      5: "University students have diverse financial capabilities. That is why UniMart AI is not just a standard buy-and-sell store. If a student has zero cash, they can use our Barter Exchange to swap past course materials for new ones, or access our Free Giveaway shelf where senior batches pass down lecture notes for free. And if an item is not found, our Wanted Requests board allows students to crowd-source the campus for supplies.",
+      6: "Our AI assistant represents one of our proudest innovations. Instead of a detached third-party bot, we engineered a conversational assistant that understands colloquial campus phrasing in English, Bangla, and Banglish. If a student asks for books, it queries the live database and highlights available titles with prices and campus locations. If the requested item does not exist, it doesn't give a generic error—it politely informs the user and invites them to create a Wanted Request with one click.",
+      7: "Security was our primary non-negotiable requirement. Rather than implementing insecure third-party payment gateways prone to chargeback fraud, we engineered the 2-Step Campus Handover Protocol. A transaction cannot be marked complete until both parties meet on campus and digitally confirm handover on their screens. Combined with BCrypt hashing and role-based permissions, UniMart AI establishes an airtight trust environment.",
+      8: "As presented in our traceability matrix, our delivered system satisfies 100% of our original project requirements with zero compromises. Every functional requirement—from email verification and multi-mode commerce to dual confirmation handovers and admin moderation—has been implemented, unit tested, and successfully deployed to our live production environment.",
+      9: "Quality assurance was carried out across multiple dimensions. We did not merely test on high-resolution developer monitors; we rigorously tested on 1366x768 laptop screens and high-DPI scaling to verify that our navbar, global search, and mode toggles never overflow or clip. Our build pipeline achieves ultra-fast compilation under one second with optimized bundle sizes for seamless mobile browsing.",
+      10: "In conclusion, UniMart AI is not just a theoretical software engineering project; it is a live, fully deployed, and practical solution that solves real-world campus problems at BUP. We thank our honorable faculty and project supervisor for their guidance throughout this semester. We are now open to questions from the board. Thank you!"
+    };
 
-    function updateSlide() {
-      slides.forEach((s, idx) => {
-        s.classList.toggle('active', idx === currentSlide);
+    let currentSlide = 1;
+    const totalSlides = 10;
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
+
+      document.querySelectorAll('.slide-wrapper').forEach((el, idx) => {
+        el.classList.toggle('active', (idx + 1) === currentSlide);
       });
-      slideIndicator.textContent = `${currentSlide + 1} / ${totalSlides}`;
-      
-      const currentNotes = slides[currentSlide].getAttribute('data-notes') || 'No speaker notes for this slide.';
-      speakerNotesContent.textContent = currentNotes;
+
+      document.getElementById('slide-indicator').textContent = `${String(currentSlide).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+      document.getElementById('progress-bar').style.width = `${(currentSlide / totalSlides) * 100}%`;
+      document.getElementById('notes-content').textContent = speakerNotes[currentSlide] || "No speaker notes.";
     }
 
     function nextSlide() {
-      if (currentSlide < totalSlides - 1) {
-        currentSlide++;
-        updateSlide();
-      }
+      if (currentSlide < totalSlides) showSlide(currentSlide + 1);
     }
 
     function prevSlide() {
-      if (currentSlide > 0) {
-        currentSlide--;
-        updateSlide();
-      }
+      if (currentSlide > 1) showSlide(currentSlide - 1);
     }
 
     function toggleNotes() {
-      speakerNotesPanel.classList.toggle('visible');
+      document.getElementById('speaker-notes-drawer').classList.toggle('open');
     }
 
-    function toggleFullScreen() {
+    function toggleFullscreen() {
       if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(() => {});
+        document.documentElement.requestFullscreen().catch(err => console.log(err));
       } else {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        }
+        document.exitFullscreen();
       }
     }
 
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') {
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         nextSlide();
-      } else if (e.key === 'ArrowLeft') {
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
         prevSlide();
       } else if (e.key.toLowerCase() === 's') {
         toggleNotes();
       } else if (e.key.toLowerCase() === 'f') {
-        toggleFullScreen();
+        toggleFullscreen();
       }
     });
 
     // Initialize
-    updateSlide();
+    showSlide(1);
   </script>
 </body>
 </html>
