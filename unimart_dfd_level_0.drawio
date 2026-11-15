@@ -1,0 +1,35 @@
+<mxfile host="app.diagrams.net" modified="2026-11-15T21:42:00.000Z" agent="Antigravity" version="24.0.0" type="device">
+  <diagram id="UniMart-DFD0" name="DFD Level 0 - UniMart AI">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="DFD Level 0 (Context Diagram)&lt;br&gt;&lt;b&gt;UniMart AI — Intelligent Campus Marketplace System&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F7FF;strokeColor=#3B82F6;strokeWidth=2;fontSize=15;fontColor=#0F172A;" vertex="1" parent="1">
+      <mxGeometry x="360" y="30" width="680" height="60" as="geometry" />
+    </mxCell><mxCell id="3" value="&lt;b style=&quot;font-size:18px;color:#0369A1;&quot;&gt;0&lt;/b&gt;&lt;br&gt;&lt;b style=&quot;font-size:14px;&quot;&gt;UNIMART AI CAMPUS&lt;br&gt;MARKETPLACE SYSTEM&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F0F9FF;strokeColor=#0369A1;strokeWidth=2.2;fontColor=#0F172A;" vertex="1" parent="1">
+      <mxGeometry x="540" y="340" width="280" height="150" as="geometry" />
+    </mxCell><mxCell id="4" value="&lt;b style=&quot;font-size:15px;color:#6B21A8;&quot;&gt;ADMIN&lt;/b&gt;&lt;br&gt;&lt;i style=&quot;color:#7E22CE;&quot;&gt;(Platform Moderator)&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F3E8FF;strokeColor=#9333EA;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="80" y="200" width="180" height="80" as="geometry" />
+    </mxCell><mxCell id="5" value="&lt;b style=&quot;font-size:15px;color:#14532D;&quot;&gt;STUDENT&lt;/b&gt;&lt;br&gt;&lt;i style=&quot;color:#15803D;&quot;&gt;(Verified @bup.edu.bd)&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="1100" y="200" width="200" height="80" as="geometry" />
+    </mxCell><mxCell id="6" value="&lt;b style=&quot;font-size:14px;color:#075985;&quot;&gt;CAMPUS AI ASSISTANT&lt;/b&gt;&lt;br&gt;&lt;i style=&quot;color:#0369A1;&quot;&gt;(Gemini AI Engine)&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0284C7;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="80" y="550" width="180" height="80" as="geometry" />
+    </mxCell><mxCell id="7" value="Moderation decisions, user bans,&lt;br&gt;category settings, report reviews" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=classic;fontSize=10;" edge="1" source="4" target="3" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell><mxCell id="8" value="Abuse reports, flagged listings,&lt;br&gt;GMV metrics, audit logs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=classic;fontSize=10;" edge="1" source="3" target="4" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell><mxCell id="9" value="Registration, login, item listings,&lt;br&gt;offers, wanted requests, chat" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=classic;fontSize=10;" edge="1" source="5" target="3" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell><mxCell id="10" value="Search results, offer status, item details,&lt;br&gt;notification alerts, handover receipts" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=classic;fontSize=10;" edge="1" source="3" target="5" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell><mxCell id="11" value="Trilingual NLP intent, fair pricing advice,&lt;br&gt;out-of-stock detection, wanted redirect" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=classic;fontSize=10;" edge="1" source="6" target="3" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell><mxCell id="12" value="Student natural queries (EN/BN/Banglish),&lt;br&gt;live catalog inventory snapshot" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#475569;strokeWidth=1.5;endArrow=classic;fontSize=10;" edge="1" source="3" target="6" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell><mxCell id="13" value="&lt;b&gt;Notation:&lt;/b&gt; Rectangle = External Entity • Oval = System Process • Arrow = Data Flow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontSize=11;fontColor=#334155;" vertex="1" parent="1">
+      <mxGeometry x="380" y="690" width="640" height="35" as="geometry" />
+    </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
