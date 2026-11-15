@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1420 980" width="100%" height="100%" style="background:#FFFFFF; font-family:'Arial', 'Segoe UI', sans-serif;">
+<defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 1 L 8 5 L 0 9 z" fill="#475569"/>
+      </marker>
+    </defs>
+<rect x="310.0" y="20" width="800" height="58" rx="10" fill="#F0F7FF" stroke="#3B82F6" stroke-width="1.8"/>
+<text x="710.0" y="44" fill="#0F172A" font-size="16" font-weight="bold" text-anchor="middle" font-family="Arial">DFD Level 1: Subsystem Process Decomposition</text>
+<text x="710.0" y="66" fill="#2563EB" font-size="13.5" font-weight="bold" text-anchor="middle" font-family="Arial">UniMart AI — Intelligent Campus Marketplace System</text>
+<rect x="70" y="95" width="1280" height="830" rx="24" fill="#FFFFFF" stroke="#64748B" stroke-width="1.8" stroke-dasharray="6,4"/>
+<text x="90" y="119" fill="#64748B" font-size="12" font-weight="bold">System Boundary: UniMart AI Core Processing Layer</text>
+<path d="M 1140 160 L 565 160" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="660" y="152" fill="#1E293B" font-size="9" text-anchor="middle">Credentials, BUP Email</text>
+<path d="M 565 185 L 1140 185" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="660" y="200" fill="#1E293B" font-size="9" text-anchor="middle">JWT Session Token</text>
+<path d="M 450 208 L 450 375" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="390" y="300" fill="#1E293B" font-size="9" text-anchor="middle">Read/Write User Profile</text>
+<path d="M 1160 205 L 1160 240 L 950 240 L 950 185" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="1040" y="232" fill="#1E293B" font-size="9" text-anchor="middle">Item details (Sell / Swap / Giveaway)</text>
+<path d="M 950 160 L 1020 160 L 1140 160" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="1030" y="145" fill="#1E293B" font-size="9" text-anchor="middle">Catalog &amp; Search Results</text>
+<path d="M 780 208 L 780 375" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="730" y="300" fill="#1E293B" font-size="9" text-anchor="middle">Store Product Data</text>
+<path d="M 1220 205 L 1220 510 L 950 510" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="1060" y="502" fill="#1E293B" font-size="9" text-anchor="middle">Make Offer / Barter Swap</text>
+<path d="M 880 490 L 880 429" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="910" y="455" fill="#1E293B" font-size="9" text-anchor="middle">Update Deal Status</text>
+<path d="M 800 558 L 800 640 L 660 640 L 660 730" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="690" y="632" fill="#1E293B" font-size="9" text-anchor="middle">Agreed Deal for Handover</text>
+<path d="M 1200 520 L 1200 740 L 660 740" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="1050" y="732" fill="#1E293B" font-size="9" text-anchor="middle">Dual &quot;Confirm Handover&quot; taps</text>
+<path d="M 510 710 L 510 429" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="500" y="550" fill="#1E293B" font-size="9" text-anchor="middle">Mark Item as &quot;Sold&quot;</text>
+<path d="M 1050 730 L 1130 730" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="1080" y="722" fill="#1E293B" font-size="9" text-anchor="middle">NLP Parsed Guidance</text>
+<path d="M 1140 695 L 1060 695 L 1060 755 L 1050 755" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="1090" y="685" fill="#1E293B" font-size="9" text-anchor="middle">Gemini Inference</text>
+<path d="M 900 710 L 900 429" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="830" y="610" fill="#1E293B" font-size="9" text-anchor="middle">Live Stock Query</text>
+<path d="M 150 205 L 150 435" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="110" y="320" fill="#1E293B" font-size="9" text-anchor="middle">Ban / Suspend Actions</text>
+<path d="M 290 470 L 365 470 L 365 590" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="325" y="465" fill="#1E293B" font-size="9" text-anchor="middle">Audit Logs</text>
+<path d="M 200 435 L 200 210" fill="none" stroke="#475569" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="210" y="340" fill="#1E293B" font-size="9" text-anchor="middle">GMV &amp; Metrics</text>
+<rect x="370" y="380" width="175" height="44" fill="#FEF3C7" stroke="#D97706" stroke-width="1.6"/>
+<line x1="406" y1="380" x2="406" y2="424" stroke="#D97706" stroke-width="1.6"/>
+<text x="388" y="407.0" fill="#78350F" font-size="12" font-weight="bold" text-anchor="middle">D1</text>
+<text x="475.5" y="406.0" fill="#78350F" font-size="11" font-weight="bold" text-anchor="middle">Users Collection</text>
+<rect x="630" y="380" width="175" height="44" fill="#FEF3C7" stroke="#D97706" stroke-width="1.6"/>
+<line x1="666" y1="380" x2="666" y2="424" stroke="#D97706" stroke-width="1.6"/>
+<text x="648" y="407.0" fill="#78350F" font-size="12" font-weight="bold" text-anchor="middle">D2</text>
+<text x="735.5" y="406.0" fill="#78350F" font-size="11" font-weight="bold" text-anchor="middle">Products &amp; Listings</text>
+<rect x="890" y="380" width="175" height="44" fill="#FEF3C7" stroke="#D97706" stroke-width="1.6"/>
+<line x1="926" y1="380" x2="926" y2="424" stroke="#D97706" stroke-width="1.6"/>
+<text x="908" y="407.0" fill="#78350F" font-size="12" font-weight="bold" text-anchor="middle">D3</text>
+<text x="995.5" y="406.0" fill="#78350F" font-size="11" font-weight="bold" text-anchor="middle">Offers &amp; Deals</text>
+<rect x="370" y="580" width="175" height="44" fill="#FEF3C7" stroke="#D97706" stroke-width="1.6"/>
+<line x1="406" y1="580" x2="406" y2="624" stroke="#D97706" stroke-width="1.6"/>
+<text x="388" y="607.0" fill="#78350F" font-size="12" font-weight="bold" text-anchor="middle">D4</text>
+<text x="475.5" y="606.0" fill="#78350F" font-size="11" font-weight="bold" text-anchor="middle">Abuse Reports &amp; Logs</text>
+<rect x="370" y="140" width="190" height="68" rx="14" fill="#F8FAFC" stroke="#2563EB" stroke-width="2"/>
+<path d="M 370 162 L 560 162" stroke="#2563EB" stroke-width="1.2"/>
+<text x="465.0" y="156" fill="#2563EB" font-size="12" font-weight="bold" text-anchor="middle">Process 1.0</text>
+<text x="465.0" y="180" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="middle">Auth &amp; Verification</text>
+<text x="465.0" y="196" fill="#64748B" font-size="9.5" text-anchor="middle">JWT, @bup.edu.bd Token</text>
+<rect x="760" y="140" width="190" height="68" rx="14" fill="#F8FAFC" stroke="#2563EB" stroke-width="2"/>
+<path d="M 760 162 L 950 162" stroke="#2563EB" stroke-width="1.2"/>
+<text x="855.0" y="156" fill="#2563EB" font-size="12" font-weight="bold" text-anchor="middle">Process 2.0</text>
+<text x="855.0" y="180" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="middle">Listing &amp; Catalog</text>
+<text x="855.0" y="196" fill="#64748B" font-size="9.5" text-anchor="middle">Sell / Barter / Giveaway</text>
+<rect x="760" y="490" width="190" height="68" rx="14" fill="#F8FAFC" stroke="#2563EB" stroke-width="2"/>
+<path d="M 760 512 L 950 512" stroke="#2563EB" stroke-width="1.2"/>
+<text x="855.0" y="506" fill="#2563EB" font-size="12" font-weight="bold" text-anchor="middle">Process 3.0</text>
+<text x="855.0" y="530" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="middle">Negotiate &amp; Barter</text>
+<text x="855.0" y="546" fill="#64748B" font-size="9.5" text-anchor="middle">Make Offer &amp; Swap</text>
+<rect x="470" y="710" width="190" height="68" rx="14" fill="#F8FAFC" stroke="#2563EB" stroke-width="2"/>
+<path d="M 470 732 L 660 732" stroke="#2563EB" stroke-width="1.2"/>
+<text x="565.0" y="726" fill="#2563EB" font-size="12" font-weight="bold" text-anchor="middle">Process 4.0</text>
+<text x="565.0" y="750" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="middle">2-Step Handover</text>
+<text x="565.0" y="766" fill="#64748B" font-size="9.5" text-anchor="middle">Dual In-Person Confirm</text>
+<rect x="860" y="710" width="190" height="68" rx="14" fill="#F8FAFC" stroke="#2563EB" stroke-width="2"/>
+<path d="M 860 732 L 1050 732" stroke="#2563EB" stroke-width="1.2"/>
+<text x="955.0" y="726" fill="#2563EB" font-size="12" font-weight="bold" text-anchor="middle">Process 5.0</text>
+<text x="955.0" y="750" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="middle">Campus AI Assistant</text>
+<text x="955.0" y="766" fill="#64748B" font-size="9.5" text-anchor="middle">NLP &amp; Out-of-Stock Route</text>
+<rect x="100" y="440" width="190" height="68" rx="14" fill="#F8FAFC" stroke="#2563EB" stroke-width="2"/>
+<path d="M 100 462 L 290 462" stroke="#2563EB" stroke-width="1.2"/>
+<text x="195.0" y="456" fill="#2563EB" font-size="12" font-weight="bold" text-anchor="middle">Process 6.0</text>
+<text x="195.0" y="480" fill="#0F172A" font-size="12" font-weight="bold" text-anchor="middle">Admin Moderation</text>
+<text x="195.0" y="496" fill="#64748B" font-size="9.5" text-anchor="middle">Report Audit &amp; Bans</text>
+<rect x="100" y="140" width="150" height="65" fill="#F3E8FF" stroke="#9333EA" stroke-width="2" rx="4"/>
+<text x="175.0" y="170.5" fill="#0F172A" font-size="14" font-weight="bold" text-anchor="middle">ADMIN</text>
+<text x="175.0" y="187.5" fill="#475569" font-size="10" font-weight="bold" text-anchor="middle">(Platform Moderator)</text>
+<rect x="1140" y="140" width="160" height="65" fill="#DCFCE7" stroke="#16A34A" stroke-width="2" rx="4"/>
+<text x="1220.0" y="170.5" fill="#0F172A" font-size="14" font-weight="bold" text-anchor="middle">STUDENT</text>
+<text x="1220.0" y="187.5" fill="#475569" font-size="10" font-weight="bold" text-anchor="middle">(Verified @bup.edu.bd)</text>
+<rect x="1140" y="660" width="160" height="65" fill="#E0F2FE" stroke="#0284C7" stroke-width="2" rx="4"/>
+<text x="1220.0" y="690.5" fill="#0F172A" font-size="14" font-weight="bold" text-anchor="middle">CAMPUS AI ENGINE</text>
+<text x="1220.0" y="707.5" fill="#475569" font-size="10" font-weight="bold" text-anchor="middle">(Gemini Generative API)</text>
+<rect x="330.0" y="877" width="760" height="32" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+<text x="710.0" y="897" fill="#334155" font-size="11.5" text-anchor="middle" font-family="Arial">Notation: Rectangle = External Entity • Rounded Box = Process • Open Box = Data Store • Arrow = Data Flow</text>
+</svg>
