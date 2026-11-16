@@ -47,6 +47,7 @@ export const WishlistPage = ({ onNavigate }) => {
   };
 
   const baseUrl = import.meta.env.VITE_API_BASE_URL?.replace('/api/v1', '') || 'http://localhost:5000';
+  const displayItems = items.filter((item) => Boolean(item.product));
 
   return (
     <div className="w-full max-w-6xl mx-auto space-y-6">
@@ -54,7 +55,7 @@ export const WishlistPage = ({ onNavigate }) => {
         <div>
           <h1 className="text-2xl font-extrabold text-slate-900">Wishlist</h1>
           <p className="text-sm text-slate-500 mt-1">
-            {loading ? 'Loading saved items...' : `${items.length} saved ${items.length === 1 ? 'item' : 'items'}`}
+            {loading ? 'Loading saved items...' : `${displayItems.length} saved ${displayItems.length === 1 ? 'item' : 'items'}`}
           </p>
         </div>
       </div>
@@ -79,7 +80,7 @@ export const WishlistPage = ({ onNavigate }) => {
         </div>
       )}
 
-      {!loading && !error && items.length === 0 && (
+      {!loading && !error && displayItems.length === 0 && (
         <div className="bg-white rounded-3xl border border-slate-200 p-12 text-center max-w-md mx-auto space-y-3 shadow-sm">
           <div className="w-12 h-12 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mx-auto">
             <Heart className="w-6 h-6" />
@@ -97,18 +98,11 @@ export const WishlistPage = ({ onNavigate }) => {
         </div>
       )}
 
-      {!loading && !error && items.length > 0 && (
+      {!loading && !error && displayItems.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((item) => {
+          {displayItems.map((item) => {
             const product = item.product;
-            if (!product) {
-              return (
-                <div key={item._id} className="bg-white rounded-2xl border border-slate-200 p-5 space-y-3">
-                  <h3 className="font-bold text-slate-900 text-sm">Listing unavailable</h3>
-                  <p className="text-xs text-slate-500">This product is no longer available.</p>
-                </div>
-              );
-            }
+            if (!product) return null;
 
             const thumbnail = product.images?.find((img) => img.isThumbnail) || product.images?.[0];
             const imageSrc = thumbnail?.url

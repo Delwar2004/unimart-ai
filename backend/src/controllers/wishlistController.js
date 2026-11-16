@@ -57,7 +57,16 @@ export const getWishlist = async (req, res, next) => {
       })
       .lean();
 
-    const items = entries.map((entry) => ({
+    // Auto-clean any orphaned wishlist records where the referenced product no longer exists
+    const orphanedIds = entries.filter((entry) => !entry.product).map((entry) => entry._id);
+    if (orphanedIds.length > 0) {
+      Wishlist.deleteMany({ _id: { $in: orphanedIds } }).catch((err) =>
+        console.warn('[Wishlist] Auto-cleanup notice:', err.message)
+      );
+    }
+
+    const validEntries = entries.filter((entry) => Boolean(entry.product));
+    const items = validEntries.map((entry) => ({
       _id: entry._id,
       createdAt: entry.createdAt,
       updatedAt: entry.updatedAt,
