@@ -43,6 +43,10 @@ export const GlobalSearchBar = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!query.trim()) {
+      inputRef.current?.focus();
+      return;
+    }
     if (onSearch) {
       onSearch(query.trim());
     }
@@ -51,13 +55,18 @@ export const GlobalSearchBar = ({
   const handleInputKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
+      if (!query.trim()) {
+        inputRef.current?.focus();
+        return;
+      }
       if (onSearch) {
         onSearch(query.trim());
       }
     }
   };
 
-  const handleClear = () => {
+  const handleClear = (e) => {
+    e.stopPropagation();
     setQuery('');
     if (onChange) onChange('');
     if (onSearch) onSearch('');
@@ -71,7 +80,8 @@ export const GlobalSearchBar = ({
       role="search"
     >
       <div
-        className={`w-full flex items-center gap-2 px-3 py-1.5 xl:py-2 rounded-xl border transition-all duration-200 ${
+        onClick={() => inputRef.current?.focus()}
+        className={`w-full min-w-[180px] flex items-center gap-2 px-3 py-1.5 xl:py-2 rounded-xl border transition-all duration-200 cursor-text ${
           isFocused
             ? 'bg-white dark:bg-slate-900 border-indigo-500/80 dark:border-indigo-400 ring-3 ring-indigo-500/15 shadow-xs'
             : 'bg-slate-100/90 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-800 border-slate-200/90 dark:border-slate-700/80'
@@ -95,10 +105,10 @@ export const GlobalSearchBar = ({
           onBlur={() => setIsFocused(false)}
           placeholder={
             isBangla
-              ? 'বই, ক্যালকুলেটর, খাতা খুঁজুন...'
-              : 'Search books, calculators, notes...'
+              ? 'বই, ক্যালকুলেটর খুঁজুন...'
+              : 'Search books, calculator...'
           }
-          className="w-full bg-transparent text-xs xl:text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 outline-none border-none p-0 font-medium"
+          className="min-w-0 flex-1 bg-transparent text-xs xl:text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 outline-none border-none p-0 font-medium"
         />
 
         {query && (

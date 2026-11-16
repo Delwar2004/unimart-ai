@@ -154,6 +154,9 @@ export const BrowseProducts = ({ onNavigate, initialSearch = '', searchTrigger =
         setSearchTerm(initialSearch);
         setIsAiFiltered(false);
         fetchProducts(1, filters, initialSearch);
+        setTimeout(() => {
+          document.getElementById('marketplace-products-section')?.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
       }
       return;
     }
@@ -164,10 +167,7 @@ export const BrowseProducts = ({ onNavigate, initialSearch = '', searchTrigger =
     // Smooth scroll down to results section when user executes a search
     if (initialSearch && initialSearch.trim()) {
       setTimeout(() => {
-        const resultsEl = document.getElementById('marketplace-products-section');
-        if (resultsEl) {
-          resultsEl.scrollIntoView({ behavior: 'smooth' });
-        }
+        document.getElementById('marketplace-products-section')?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
   }, [searchTrigger, initialSearch]);

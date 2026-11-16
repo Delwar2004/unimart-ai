@@ -360,8 +360,8 @@ function MainApp() {
             </div>
           </div>
 
-          {/* Quick Global Search Bar (Middle - responsive, disappears gracefully on smaller screens) */}
-          <div className="hidden xl:flex items-center justify-center flex-1 max-w-xs xl:max-w-[280px] 2xl:max-w-md mx-2">
+          {/* Quick Global Search Bar */}
+          <div className="hidden md:flex items-center flex-1 min-w-[200px] max-w-[260px] xl:max-w-[320px] 2xl:max-w-md mx-2 shrink-0">
             <GlobalSearchBar
               value={globalSearchQuery}
               onChange={setGlobalSearchQuery}
