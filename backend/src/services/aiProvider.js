@@ -1122,21 +1122,21 @@ export const generateMockAssistantResponse = async ({ message = '', userContext 
 
   // 11. Product Search & Inquiries (Fuzzy Match & Live Database Query)
   const productKeywordMap = [
-    { entity: 'calculator', regex: /(calcul|calcual|calclat|calculet|calcult|casio|classwiz|fx-?991|scientific|ক্যালকুলেটর)/i, dbQuery: 'Casio|FX-991|Calculator' },
-    { entity: 'notebook', regex: /(khata|khatta|notebook|note\s*book|spiral|exercise\s*book|khata\s*kolom|খাতা|নোটবুক)/i, dbQuery: 'Notebook|Uni-ball|Stationery|Spiral|Grid' },
-    { entity: 'notes', regex: /(lecture\s*notes?|lecture\s*sheet|handout|formula\s*sheet|midterm\s*solution|লেকচার\s*নোট|হ্যান্ডআউট|শিট)/i, dbQuery: 'Lecture Notes|Handouts|Freshman' },
-    { entity: 'pencils', regex: /(pencil|pencils|drawing\s*pencil|faber|drafting\s*pencil|পেন্সিল|কালার\s*পেন্সিল)/i, dbQuery: 'Faber-Castell|Pencils|Drafting' },
-    { entity: 'book', regex: /(books?\b|textbooks?\b|boi\b|boii\b|morris|mano|sedra|smith|calculus|algorithm|বই\b|বইপত্র)/i, dbQuery: 'Textbook|Logic|Mano|Edition|Course Book' },
-    { entity: 'charger', regex: /(charg|chrg|adapt|cable|baseus|gan5|type-?c|power\s*bank|চার্জার)/i, dbQuery: 'Baseus|Charger|GaN5' },
-    { entity: 'mouse', regex: /(mouse|mous|optical|logitech|wireless|মাউস)/i, dbQuery: 'Logitech|Mouse|Wireless' },
-    { entity: 'football', regex: /(football|fotball|futbol|nivia|bol\b|ball\b|ফুটবল)/i, dbQuery: 'Football|Nivia|Storm' },
-    { entity: 'badminton', regex: /(badminton|racket|raket|raquet|yonex|shuttle|র‌্যাকেট)/i, dbQuery: 'Yonex|Badminton|Racket' },
-    { entity: 'bag', regex: /(bag\b|tote|backpack|bagpack|jhola|ব্যাগ)/i, dbQuery: 'Tote|Bag|Canvas' },
-    { entity: 'lamp', regex: /(lamp|light|study\s*lamp|nordic|batte|table\s*lamp|ল্যাম্প)/i, dbQuery: 'Nordic|Lamp|Desk' },
-    { entity: 'desk', regex: /(desk|table|chair|tebil|furniture|টেবিল|চেয়ার)/i, dbQuery: 'Desk|Chair|Study' },
-    { entity: 'gloves', regex: /(glove|nitrile|lab\s*coat|gloves|গ্লাভস)/i, dbQuery: 'Nitrile|Gloves|Lab' },
-    { entity: 'arduino', regex: /(arduino|uno\b|microcontroller|breadboard|iot|sensor|আরডুইনো)/i, dbQuery: 'Arduino|Uno|R3' },
-    { entity: 'pen', regex: /(pen\b|uniball|কলম)/i, dbQuery: 'Uni-ball|Pens|Eye' },
+    { entity: 'calculator', regex: /(calcul|calcual|calclat|calculet|calcult|casio|classwiz|fx-?991|scientific|ক্যালকুলেটর)/i, dbQuery: '\\b(Casio|FX-991|Calculator)\\b' },
+    { entity: 'notebook', regex: /(khata|khatta|notebook|note\s*book|spiral|exercise\s*book|khata\s*kolom|খাতা|নোটবুক)/i, dbQuery: '\\b(Notebook|Stationery|Spiral|Grid|Khata)\\b' },
+    { entity: 'notes', regex: /(lecture\s*notes?|lecture\s*sheet|handout|formula\s*sheet|midterm\s*solution|লেকচার\s*নোট|হ্যান্ডআউট|শিট)/i, dbQuery: '\\b(Lecture Notes|Handouts|Question Bank)\\b' },
+    { entity: 'pencils', regex: /(pencil|pencils|drawing\s*pencil|faber|drafting\s*pencil|পেন্সিল|কালার\s*পেন্সিল)/i, dbQuery: '\\b(Faber-Castell|Pencils|Drafting|Sketching)\\b' },
+    { entity: 'book', regex: /(books?\b|textbooks?\b|boi\b|boii\b|morris|mano|sedra|smith|calculus|algorithm|বই|বইপত্র)/i, dbQuery: '\\b(Textbook|Textbooks|Logic|Mano|Edition|Course Book|Manuals)\\b' },
+    { entity: 'charger', regex: /(charg|chrg|adapt|cable|baseus|gan5|type-?c|power\s*bank|চার্জার)/i, dbQuery: '\\b(Baseus|Charger|GaN5|Fast Charger|USB-C)\\b' },
+    { entity: 'mouse', regex: /(mouse|mous|optical|logitech|wireless|মাউস)/i, dbQuery: '\\b(Logitech|Mouse|Optical Mouse)\\b' },
+    { entity: 'football', regex: /(football|fotball|futbol|nivia|bol\b|ball\b|ফুটবল)/i, dbQuery: '\\b(Football|Nivia|Match Football)\\b' },
+    { entity: 'badminton', regex: /(badminton|racket|raket|raquet|yonex|shuttle|র‌্যাকেট)/i, dbQuery: '\\b(Yonex|Badminton|Racket)\\b' },
+    { entity: 'bag', regex: /(bag\b|tote|backpack|bagpack|jhola|ব্যাগ)/i, dbQuery: '\\b(Tote|Bag|Backpack|Canvas)\\b' },
+    { entity: 'lamp', regex: /(lamp|light|study\s*lamp|nordic|batte|table\s*lamp|ল্যাম্প)/i, dbQuery: '\\b(Nordic|Lamp|Desk Lamp|Light)\\b' },
+    { entity: 'desk', regex: /(desk|table|chair|tebil|furniture|টেবিল|চেয়ার)/i, dbQuery: '\\b(Desk|Chair|Table|Furniture)\\b' },
+    { entity: 'gloves', regex: /(glove|nitrile|lab\s*coat|gloves|গ্লাভস)/i, dbQuery: '\\b(Nitrile|Gloves|Lab Gloves|Latex)\\b' },
+    { entity: 'arduino', regex: /(arduino|uno\b|microcontroller|breadboard|iot|sensor|আরডুইনো)/i, dbQuery: '\\b(Arduino|Uno|R3|Microcontroller)\\b' },
+    { entity: 'pen', regex: /(pen\b|pens\b|uniball|rollerball|কলম)/i, dbQuery: '\\b(Uni-ball|Pen|Pens|Rollerball)\\b' },
   ];
 
   // Dynamic Product Need/Search Extraction
@@ -1177,35 +1177,111 @@ export const generateMockAssistantResponse = async ({ message = '', userContext 
     let foundProducts = [];
     try {
       if (mongoose.connection && mongoose.connection.readyState === 1) {
-        let queryFilter = { status: { $in: ['available', 'AVAILABLE'] } };
-        if (!isGenericEntityOnly && extractedSearchTerm) {
-          // Specific query (e.g. "python book", "guitar", "gaming mouse") -> search specifically
-          const escaped = extractedSearchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-          const pattern = (escaped.length > 3 && escaped.toLowerCase().endsWith('s'))
-            ? `(${escaped}|${escaped.slice(0, -1)})`
-            : escaped;
-          queryFilter.$or = [
-            { title: { $regex: pattern, $options: 'i' } },
-            { description: { $regex: pattern, $options: 'i' } },
-            { tags: { $regex: pattern, $options: 'i' } },
-          ];
-        } else if (matchedEntity) {
-          // Generic category query (e.g. "need a books", "need calculator") -> use mapped catalog
-          queryFilter.$or = [
-            { title: { $regex: matchedEntity.dbQuery, $options: 'i' } },
-            { description: { $regex: matchedEntity.dbQuery, $options: 'i' } },
-            { tags: { $regex: matchedEntity.dbQuery, $options: 'i' } },
-          ];
+        const statusFilter = { status: { $in: ['available', 'AVAILABLE'] } };
+        const cleanTerm = (extractedSearchTerm || '').trim();
+        const isBengaliTerm = /[\u0980-\u09FF]/.test(cleanTerm);
+
+        let candidateProducts = [];
+
+        // 1. Direct Term Search (when English term exists)
+        if (cleanTerm && !isBengaliTerm) {
+          const escaped = cleanTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const termPattern = (escaped.length > 3 && escaped.toLowerCase().endsWith('s'))
+            ? `\\b(${escaped}|${escaped.slice(0, -1)})\\b`
+            : `\\b${escaped}\\b`;
+
+          // Priority 1A: Direct Title match (Highest relevance)
+          let titleMatches = await Product.find({
+            ...statusFilter,
+            title: { $regex: termPattern, $options: 'i' }
+          }).select('title price condition campusLocation tags');
+
+          // If searching for "book" / "books", filter out "bag" titles
+          if (/^(book|books)$/i.test(cleanTerm)) {
+            titleMatches = titleMatches.filter(p => !/\bbag\b/i.test(p.title));
+          }
+
+          if (titleMatches.length > 0) {
+            candidateProducts = titleMatches;
+          } else {
+            // Priority 1B: Exact Tag match (Whole word in tags)
+            let tagMatches = await Product.find({
+              ...statusFilter,
+              tags: { $in: [new RegExp(`^${cleanTerm}$`, 'i'), new RegExp(`^${cleanTerm}s?$`, 'i')] }
+            }).select('title price condition campusLocation tags');
+
+            if (/^(book|books)$/i.test(cleanTerm)) {
+              tagMatches = tagMatches.filter(p => !/\bbag\b/i.test(p.title));
+            }
+            if (/^laptop$/i.test(cleanTerm)) {
+              tagMatches = tagMatches.filter(p => /\blaptop\b/i.test(p.title));
+            }
+
+            if (tagMatches.length > 0) {
+              candidateProducts = tagMatches;
+            }
+          }
         }
-        foundProducts = await Product.find(queryFilter)
-          .select('title price condition campusLocation')
-          .limit(2);
+
+        // 2. Mapped Entity query (fallback or for Bengali queries like 'চেয়ার', 'বই')
+        if (candidateProducts.length === 0 && matchedEntity && matchedEntity.dbQuery) {
+          let catTitleMatches = await Product.find({
+            ...statusFilter,
+            title: { $regex: matchedEntity.dbQuery, $options: 'i' }
+          }).select('title price condition campusLocation tags');
+
+          if (matchedEntity.entity === 'book') {
+            catTitleMatches = catTitleMatches.filter(p => !/\bbag\b/i.test(p.title));
+          }
+          if (matchedEntity.entity === 'desk') {
+            // Exclude lamp from desk/chair results unless user explicitly searched for lamp
+            catTitleMatches = catTitleMatches.filter(p => !/\blamp\b/i.test(p.title));
+          }
+
+          if (catTitleMatches.length > 0) {
+            candidateProducts = catTitleMatches;
+          } else {
+            let catTagMatches = await Product.find({
+              ...statusFilter,
+              tags: { $regex: matchedEntity.dbQuery, $options: 'i' }
+            }).select('title price condition campusLocation tags');
+
+            if (matchedEntity.entity === 'book') {
+              catTagMatches = catTagMatches.filter(p => !/\bbag\b/i.test(p.title));
+            }
+            if (matchedEntity.entity === 'desk') {
+              catTagMatches = catTagMatches.filter(p => !/\blamp\b/i.test(p.title));
+            }
+            if (catTagMatches.length > 0) {
+              candidateProducts = catTagMatches;
+            }
+          }
+        }
+
+        // 3. General product list fallback if explicitly browsing
+        if (candidateProducts.length === 0 && isGeneralProductList) {
+          candidateProducts = await Product.find(statusFilter)
+            .select('title price condition campusLocation')
+            .limit(2);
+        }
+
+        // Rank candidate products: prioritize direct title matches
+        if (candidateProducts.length > 0 && cleanTerm && !isBengaliTerm) {
+          const reg = new RegExp(`\\b${cleanTerm}\\b`, 'i');
+          candidateProducts.sort((a, b) => {
+            const aTitle = reg.test(a.title) ? 1 : 0;
+            const bTitle = reg.test(b.title) ? 1 : 0;
+            return bTitle - aTitle;
+          });
+        }
+
+        foundProducts = candidateProducts.slice(0, 2);
       }
     } catch (dbErr) {
       console.warn('[AI Assistant] MongoDB query error:', dbErr.message);
     }
 
-      // If DB had no result or was offline, fallback to static item ONLY for generic category queries
+      // If DB had no result or was offline, fallback to static item ONLY if DB is offline
       let p1 = null;
       if (foundProducts && foundProducts.length > 0) {
         p1 = {
@@ -1214,7 +1290,7 @@ export const generateMockAssistantResponse = async ({ message = '', userContext 
           campusLocation: foundProducts[0].campusLocation || 'BUP Campus',
           condition: foundProducts[0].condition || 'Good',
         };
-      } else if (isGenericEntityOnly && matchedEntity && staticCampusProducts[matchedEntity.entity]) {
+      } else if ((!mongoose.connection || mongoose.connection.readyState !== 1) && isGenericEntityOnly && matchedEntity && staticCampusProducts[matchedEntity.entity]) {
         p1 = staticCampusProducts[matchedEntity.entity];
       }
 
